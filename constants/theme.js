@@ -2,6 +2,7 @@ const COLORS = {
     primaryFirst: "#302EAC",
     primarySecond: "#0C54BC",
     secondary: "#F7F8F6",
+    transparent: "rgba(48, 46, 172, 0)",
 
     textColor: "#3C3939",
 

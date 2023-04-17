@@ -2,8 +2,8 @@ import {StyleSheet} from "react-native";
 import {COLORS, SIZES, FONT} from "../../constants";
 
 const styles = StyleSheet.create({
-    tab: {
-        width: 150,
+    block:{
+        width: 250,
         height: 150,
         backgroundColor: COLORS.white,
         color: COLORS.textColor,
@@ -16,29 +16,21 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
-    circle: {
-        backgroundColor: COLORS.iconBackgroundColor,
-        width: 100,
-        height: 100,
-        borderRadius: 50,
-        marginTop: 15,
-        justifyContent: "center",
-        alignItems: "center",
-    },
-    menuIconText: {
-        textAlign: "center",
+    title:{
+        fontWeight: "bold",
+        fontSize: SIZES.xxLarge,
         fontFamily: FONT.regular,
         color: COLORS.textColor,
-        fontSize: SIZES.medium,
-        fontWeight: "bold",
-        marginVertical: 5,
+        margin: 10,
     },
-    attendanceButton: {
-        backgroundColor: COLORS.primarySecond,
-        borderRadius: 15,
-        height: 50,
-        width: 50,
-        justifyContent: "center",
+    time: {
+        fontSize: SIZES.medium,
+        color: COLORS.textColor,
+        fontFamily: FONT.regular,
+        marginHorizontal: 30,
+    },
+    timerBlock: {
+        flexDirection: "row",
         alignItems: "center",
     }
 });

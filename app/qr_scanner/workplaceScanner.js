@@ -1,5 +1,3 @@
-import styles from "./component.style";
-
 const WorkPlaceScanner = () => {
 
 }
