@@ -40,6 +40,22 @@ const styles = StyleSheet.create({
         width: 50,
         justifyContent: "center",
         alignItems: "center",
+    },
+    blueButton:{
+        backgroundColor: COLORS.primarySecond,
+        width: 250,
+        marginLeft: 25,
+        marginTop: 15,
+        borderRadius: 5,
+        textAlign: "center",
+        height: 50,
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    blueButtonText:{
+        color: COLORS.white,
+        fontSize: SIZES.large,
+        fontWeight: "bold",
     }
 });
 

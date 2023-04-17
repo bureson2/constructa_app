@@ -3,6 +3,8 @@ const COLORS = {
     primarySecond: "#0C54BC",
     secondary: "#F7F8F6",
     transparent: "rgba(48, 46, 172, 0)",
+    listCircle: "#E3EDF8",
+    listText: "#283593",
 
     textColor: "#3C3939",
 
