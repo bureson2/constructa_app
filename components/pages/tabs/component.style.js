@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         justifyContent: "space-around",
         paddingVertical: 15,
-    }
+    },
 });
 
 export default styles;

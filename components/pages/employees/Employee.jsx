@@ -24,7 +24,7 @@ const Employee = () => {
         >
             <View style={styles.centerFlatList}>
                 {isLoading ? (
-                    <ActivityIndicator size='large' color={COLORS.primarySecond}/>
+                    <ActivityIndicator size='large' color={COLORS.primarySecond} />
                 ) : error ? (
                     <Text>Jejda, něco se nepodařilo</Text>
                 ) : (

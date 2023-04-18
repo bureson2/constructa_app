@@ -34,6 +34,7 @@ export const homeIcon = () => <SvgXml xml={home} />;
 export const homeFocusedIcon = () => <SvgXml xml={homeFocused} />;
 
 const ICONS = {
+    plane: "M350 976v-42l80-60V623L80 726v-58l350-206V226q0-21 14.5-35.5T480 176q21 0 35.5 14.5T530 226v236l350 206v58L530 623v251l80 60v42l-130-37-130 37Z",
     create: "M445.935 860.065v-250h-250v-68.13h250v-250h68.13v250h250v68.13h-250v250h-68.13Z",
     back: "M480 898.63 157.37 576 480 253.37l47.978 47.739-240.586 240.826H802.63v68.13H287.392l240.586 240.587L480 898.63Z",
     dropdown: "M480 701.739 270.195 492.935h419.61L480 701.739Z",

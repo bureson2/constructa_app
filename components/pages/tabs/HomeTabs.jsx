@@ -1,15 +1,15 @@
 import styles from "./component.style";
-import {View, Text} from "react-native";
+import {View, Text, ImageBackground} from "react-native";
 import MenuIconButton from "../../buttons/MenuIconButton";
 import {ICONS} from "../../../constants/icons";
 import AttendanceBlock from "../../attendance_block/AttendanceBlock";
 
 
 const HomeTabs = () => {
-    return(
+    return (
         <View style={styles.tabCol}>
             <View style={styles.tabLines}>
-                <AttendanceBlock />
+                <AttendanceBlock/>
             </View>
             <View style={styles.tabLines}>
                 <MenuIconButton title={"Stazka"} icon={ICONS.cars}/>
@@ -17,7 +17,7 @@ const HomeTabs = () => {
             </View>
             <View style={styles.tabLines}>
                 <MenuIconButton title={"Projekty"} icon={ICONS.work}/>
-                <MenuIconButton title={"Nemoc"} icon={ICONS.illnes} />
+                <MenuIconButton title={"Nemoc"} icon={ICONS.illnes}/>
             </View>
         </View>
     )
