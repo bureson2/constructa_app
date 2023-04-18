@@ -1,5 +1,5 @@
 import styles from "./component.style";
-import {View, Text, ActivityIndicator, FlatList} from "react-native";
+import {View, Text, ActivityIndicator, FlatList, ImageBackground} from "react-native";
 import {useRouter} from "expo-router";
 import useFetch from "../../../hook/useFetch";
 import {COLORS, SIZES} from "../../../constants";
@@ -9,15 +9,19 @@ import ListItem from "../../list_item/ListItem";
 const Task = () => {
 
     const router = useRouter();
-    const {data, isLoading, error} = useFetch("tesks");
+    const {data, isLoading, error} = useFetch("tasks");
 
     const handleCardPress = (item) => {
         router.push(`/task/${item.id}`);
     };
 
     return (
-        <View style={{flex: 1}}>
-            <View>
+        <ImageBackground
+            source={require("../../../assets/backgrounds/basicBG.png")}
+            style={styles.background}
+            resizeMode="cover"
+        >
+            <View style={styles.centerFlatList}>
                 {isLoading ? (
                     <ActivityIndicator size='large' color={COLORS.primarySecond}/>
                 ) : error ? (
@@ -25,6 +29,7 @@ const Task = () => {
                 ) : (
                     <FlatList
                         data={data}
+                        style={styles.backgroundColor}
                         renderItem={({item}) => (
                             <ListItem itemType={"TASK"}
                                       item={item}
@@ -36,7 +41,7 @@ const Task = () => {
                     />
                 )}
             </View>
-        </View>
+        </ImageBackground>
     )
 }
 

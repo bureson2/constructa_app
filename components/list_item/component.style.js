@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         flexDirection: "column",
+        fontSize: SIZES.medium,
     }
 
 });

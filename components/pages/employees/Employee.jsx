@@ -1,5 +1,5 @@
 import styles from "./component.style";
-import {View, Text, ActivityIndicator, FlatList} from "react-native";
+import {View, Text, ActivityIndicator, FlatList, ImageBackground} from "react-native";
 import {useRouter} from "expo-router";
 import useFetch from "../../../hook/useFetch";
 import {useState} from "react";
@@ -17,8 +17,12 @@ const Employee = () => {
     };
 
     return (
-        <View style={{flex: 1}}>
-            <View>
+        <ImageBackground
+            source={require("../../../assets/backgrounds/basicBG.png")}
+            style={styles.background}
+            resizeMode="cover"
+        >
+            <View style={styles.centerFlatList}>
                 {isLoading ? (
                     <ActivityIndicator size='large' color={COLORS.primarySecond}/>
                 ) : error ? (
@@ -26,6 +30,7 @@ const Employee = () => {
                 ) : (
                     <FlatList
                         data={data}
+                        style={styles.backgroundColor}
                         renderItem={({item}) => (
                             <ListItem itemType={"EMPLOYEE"}
                                       item={item}
@@ -37,8 +42,7 @@ const Employee = () => {
                     />
                 )}
             </View>
-        </View>
-
+        </ImageBackground>
     )
 }
 

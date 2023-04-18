@@ -1,11 +1,22 @@
 import styles from "./component.style";
 import {View, Text, TouchableOpacity, Image} from "react-native";
+import {Path, Svg} from "react-native-svg";
+import {COLORS} from "../../constants";
+import {ICONS} from "../../constants/icons";
 
 
 const ListItem = ({itemType, item, handleCardPress}) => {
 
-    // const firstLetter = item.name.charAt(0);
-    const firstLetter = item.id;
+    function getIcon(state){
+        if(state === "Hotovo"){
+            return ICONS.check;
+        } else if (state === "V řešení"){
+            return ICONS.work;
+        } else if (state === "Pozastaveno"){
+            return ICONS.pause;
+        } else return ICONS.eye;
+    }
+
 
     return (
         <TouchableOpacity
@@ -13,29 +24,66 @@ const ListItem = ({itemType, item, handleCardPress}) => {
             onPress={() => handleCardPress(item)}
         >
             <View style={styles.circle}>
-                <Text style={styles.circleText}>{firstLetter}</Text>
+                {
+                    itemType === "EMPLOYEE" ?
+                        <Text style={styles.circleText}>
+                            {item.lastname.charAt(0)}
+                        </Text> :
+                    itemType === "TASK" ?
+                        <Svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            height="30"
+                            viewBox="0 96 960 960"
+                            width="30"
+                        >
+                            <Path
+                                d={getIcon(item.state)}
+                                fill={COLORS.textColor}
+                            />
+                        </Svg>
+                        :
+                        <Text style={styles.circleText}>
+                            {item.id}
+                        </Text>
+                }
             </View>
             <View style={styles.contentContainer}>
-                <Text numberOfLines={1}>
-                    {item.id}
-                </Text>
-
-                {/*<Text numberOfLines={1}>*/}
-                {/*    {item.name}*/}
-                {/*</Text>*/}
-
-                {/*{*/}
-                {/*    itemType === "GYM" ? (*/}
-                {/*        <View>*/}
-                {/*            <Text numberOfLines={1}>*/}
-                {/*                {item.city + item.street + item.post_number}*/}
-                {/*            </Text>*/}
-                {/*        </View>*/}
-                {/*    ) : (*/}
-                {/*        <>*/}
-                {/*        </>*/}
-                {/*    )*/}
-                {/*}*/}
+                {itemType === "EMPLOYEE" ?
+                    <View>
+                        <Text>
+                            {
+                                (item.titleBeforeName ? item.titleBeforeName + " " : "")
+                                + item.firstname + " " + item.lastname + " " +
+                                (item.titleAfterName ? item.titleAfterName : "")
+                            }
+                        </Text>
+                        <Text>
+                            {
+                                item.role
+                            }
+                        </Text>
+                    </View>
+                    :
+                    itemType === "TASK" ?
+                        <View>
+                            <Text>
+                                {
+                                    item.name
+                                }
+                            </Text>
+                            <Text>
+                                {item.timeFrom.substring(0, 10)}
+                                &nbsp;(
+                                {item.timeFrom.substring(11, 16)}
+                                &nbsp;-&nbsp;
+                                {item.timeTo.substring(11, 16)}
+                                )
+                            </Text>
+                        </View>
+                    :
+                    <>
+                    </>
+                }
             </View>
         </TouchableOpacity>
     );

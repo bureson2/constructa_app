@@ -2,7 +2,6 @@ import styles from "./component.style";
 import {
     Text,
     ImageBackground,
-    ImageBackgroundComponent,
     View,
     TextInput
 } from 'react-native';
@@ -11,19 +10,17 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import {Stack, useRouter} from "expo-router";
 import BlueButton from "../components/buttons/BlueButton";
 
+// TODO odstranit default email a heslo
 
 const Login = () => {
     const router = useRouter()
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('email@email.cz');
+    const [password, setPassword] = useState('1234');
 
     const handleLogin = async () => {
 
-        // TODO
-        router.push(`home`);
-
         try {
-            const response = await fetch('http://192.168.0.171:8080/api/v1/auth/authenticate', {
+            const response = await fetch('http://192.168.43.39:8080/api/v1/auth/authenticate', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -31,9 +28,10 @@ const Login = () => {
                 body: JSON.stringify({email, password})
             });
             const data = await response.json();
+
             if (response.ok) {
                 await AsyncStorage.setItem('token', data.token);
-                router.push(`home`)
+                router.push(`home`);
             } else {
                 // přihlášení se nezdařilo, zobrazíme chybovou hlášku uživateli
                 console.error('Přihlášení se nezdařilo');
@@ -59,10 +57,13 @@ const Login = () => {
                         Email
                     </Text>
                     <TextInput
+                        value={email}
                         style={styles.inputText}
                         placeholder="Email..."
                         placeholderTextColor="#003f5c"
-                        onChangeText={text => setPassword(text)}
+                        autoCompleteType="email"
+                        keyboardType="email-address"
+                        onChangeText={text => setEmail(text)}
                     />
                 </View>
 
@@ -71,9 +72,11 @@ const Login = () => {
                         Heslo
                     </Text>
                     <TextInput
+                        value={password}
                         style={styles.inputText}
                         placeholder="Heslo..."
                         placeholderTextColor="#003f5c"
+                        autoCompleteType="password"
                         secureTextEntry={true}
                         onChangeText={text => setPassword(text)}
                     />
