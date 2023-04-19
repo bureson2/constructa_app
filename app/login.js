@@ -21,7 +21,7 @@ const Login = () => {
     const handleLogin = async () => {
 
         try {
-            const response = await fetch('http://192.168.43.39:8080/api/v1/auth/authenticate', {
+            const response = await fetch('http://192.168.0.171:8080/api/v1/auth/authenticate', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

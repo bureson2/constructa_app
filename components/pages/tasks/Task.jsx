@@ -7,7 +7,6 @@ import ListItem from "../../list_item/ListItem";
 import ScreenHeader from "../../headers/ScreenHeader";
 import React from "react";
 
-
 const Task = () => {
 
     const router = useRouter();

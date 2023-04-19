@@ -1,29 +1,28 @@
-import React, {Component, useEffect, useState} from 'react';
-import {View, StyleSheet} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { Text, View } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
-import * as Permissions from 'expo-permissions';
-import ScreenHeader from "../../components/headers/ScreenHeader";
-import styles from "./component.style";
-import {useRoute} from "@react-navigation/native";
-import {useRouter} from "expo-router";
+import { Permissions } from 'expo-permissions';
+import { withRouter } from 'expo-router';
+import styles from './component.style';
 
-
-const qrScanner = () => {
+const QRScanner = ({ router }) => {
     const [hasCameraPermission, setHasCameraPermission] = useState(null);
-    const router = useRouter();
 
     useEffect(() => {
-        (async () => {
+        async function requestCameraPermission() {
             const { status } = await Permissions.askAsync(Permissions.CAMERA);
             setHasCameraPermission(status === 'granted');
-        })();
+        }
+
+        requestCameraPermission();
     }, []);
 
     const handleBarCodeScanned = ({ type, data }) => {
-        // console.log(data);
         try {
+            console.log(data);
             const jsonData = JSON.parse(data);
             if (jsonData.hasOwnProperty('id')) {
+                console.log(jsonData.id);
                 router.push(`/car_report/${jsonData.id}`);
             } else {
                 console.log('Klíč "name" nebyl nalezen v načteném JSONu');
@@ -43,7 +42,6 @@ const qrScanner = () => {
 
     return (
         <View style={styles.container}>
-            <ScreenHeader pageTitle={""} />
             <BarCodeScanner
                 style={styles.camera}
                 onBarCodeScanned={handleBarCodeScanned}
@@ -51,6 +49,6 @@ const qrScanner = () => {
             />
         </View>
     );
-}
+};
 
-export default qrScanner;
+export default withRouter(QRScanner);
