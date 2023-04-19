@@ -1,11 +1,12 @@
 import styles from "./component.style";
-import {View, Text} from "react-native";
+import {View, Text, TouchableOpacity} from "react-native";
 import {Svg, Path} from 'react-native-svg';
 import {COLORS} from "../../constants";
 
-const AttendanceButton = ({icon}) => {
+const AttendanceButton = ({icon, onPress}) => {
     return (
-        <View style={styles.attendanceButton}>
+        <TouchableOpacity style={styles.attendanceButton}
+            onPress={onPress}>
             <Svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="40"
@@ -17,7 +18,7 @@ const AttendanceButton = ({icon}) => {
                     fill={COLORS.white}
                 />
             </Svg>
-        </View>
+        </TouchableOpacity >
     );
 }
 

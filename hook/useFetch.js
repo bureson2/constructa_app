@@ -25,7 +25,7 @@ const useFetch = (endpoint) => {
                 setIsLoading(true);
                 setError(null);
                 try {
-                    const response = await fetch(`http://192.168.0.171:8080/api/v1/${endpoint}`, {
+                    const response = await fetch(`http://192.168.43.39:8080/api/v1/${endpoint}`, {
                         headers: {
                             Authorization: `Bearer ${token}`,
                         },
@@ -40,7 +40,7 @@ const useFetch = (endpoint) => {
             }
         };
         fetchData();
-    }, [`http://192.168.0.171:8080/api/v1/${endpoint}`, token]);
+    }, [`http://192.168.43.39r:8080/api/v1/${endpoint}`, token]);
 
     return { data, isLoading, error };
 };

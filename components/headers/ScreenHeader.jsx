@@ -4,15 +4,14 @@ import {View, Text} from "react-native";
 import {Stack} from "expo-router";
 // import LinearGradient from 'react-native-linear-gradient';
 
-const ScreenHeader = () => {
+const ScreenHeader = ({title}) => {
     return (
         <Stack.Screen
             options={{
-                // headerStyle: {backgroundColor: COLORS.primaryFirst},
-                headerStyle: {backgroundColor: "tranparent"},
+                headerStyle: {backgroundColor: COLORS.white},
                 headerShadowVisible: false,
-                headerTitle: "Test",
-                headerTitleStyle: {color: COLORS.white},
+                headerTitle: title,
+                headerTitleStyle: {color: COLORS.textColor},
             }}
         />
     );
