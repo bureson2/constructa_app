@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     detailTab:{
         // justifyContent: "center",
         // alignItems: "center",
-        height: 570,
+        height: '100%',
         width: 320,
         borderRadius: 10,
         backgroundColor: COLORS.white,
@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
         width: 250,
         height: 200,
         marginBottom: 20,
+    //     TODO border radius
     },
     horizontalButtons: {
         width: 250,

@@ -7,16 +7,22 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-evenly",
         alignItems: "center",
-        // borderStyle: "solid",
-        // borderWidth: 2,
-        // borderColor: "red",
+        width: '100%',
     },
     tabCol:{
-        flex: 1,
         flexDirection: "column",
         justifyContent: "space-around",
         paddingVertical: 15,
     },
+    background: {
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    container: {
+        justifyContent: "center",
+        alignItems: "center",
+        height: 580,
+    }
 });
 
 export default styles;

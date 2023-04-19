@@ -2,14 +2,8 @@ import {StyleSheet} from "react-native";
 import {COLORS, SIZES} from "../../constants";
 
 const styles = StyleSheet.create({
-    background:{
-        paddingVertical: 80,
-        justifyContent: "center",
-        alignItems: "center",
-    },
-    detailTab:{
+    backgroundColor:{
         width: 320,
-        height: 450,
         borderRadius: 10,
         backgroundColor: COLORS.white,
         shadowColor: '#000',
@@ -18,6 +12,11 @@ const styles = StyleSheet.create({
         shadowRadius: 2,
         elevation: 5,
         marginVertical: 20,
+    },
+    centerFlatList:{
+        justifyContent: "center",
+        alignItems: "center",
+        height: '100%',
     },
 });
 

@@ -25,6 +25,14 @@ const ListItem = ({itemType, item, handleCardPress}) => {
         } else return ICONS.work;
     }
 
+    function getProjectIcon(type) {
+        if (type === "Hotovo") {
+            return ICONS.check;
+        } else if (type === "Příprava") {
+            return ICONS.prepare;
+        } else return ICONS.work;
+    }
+
 
     return (
         <TouchableOpacity
@@ -36,31 +44,45 @@ const ListItem = ({itemType, item, handleCardPress}) => {
                     itemType === "EMPLOYEE" ?
                         <Text style={styles.circleText}>
                             {item.lastname.charAt(0)}
-                        </Text> :
-                        itemType === "TASK" ?
-                            <Svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                height="30"
-                                viewBox="0 96 960 960"
-                                width="30"
-                            >
-                                <Path
-                                    d={getTaskIcon(item.state)}
-                                    fill={COLORS.textColor}
-                                />
-                            </Svg>
-                            :
-                            <Svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                height="30"
-                                viewBox="0 96 960 960"
-                                width="30"
-                            >
-                                <Path
-                                    d={getReportIcon(item.type)}
-                                    fill={COLORS.textColor}
-                                />
-                            </Svg>
+                        </Text>
+                    : itemType === "TASK" ?
+                    <Svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="30"
+                        viewBox="0 96 960 960"
+                        width="30"
+                    >
+                        <Path
+                            d={getTaskIcon(item.state)}
+                            fill={COLORS.textColor}
+                        />
+                    </Svg>
+                    : itemType === "WORKREPORT" ?
+                    <Svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="30"
+                        viewBox="0 96 960 960"
+                        width="30"
+                    >
+                        <Path
+                            d={getReportIcon(item.type)}
+                            fill={COLORS.textColor}
+                        />
+                    </Svg>
+                    : itemType === "PROJECT" ?
+                    <Svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="30"
+                        viewBox="0 96 960 960"
+                        width="30"
+                    >
+                        <Path
+                            d={getProjectIcon(item.state)}
+                            fill={COLORS.textColor}
+                        />
+                    </Svg>
+                    : <>
+                    </>
                 }
             </View>
             <View style={styles.contentContainer}>
@@ -96,7 +118,7 @@ const ListItem = ({itemType, item, handleCardPress}) => {
                                 )
                             </Text>
                         </View>
-                        :
+                    : itemType === "WORKREPORT" ?
                         <View>
                             <Text>
                                 {item.timeFrom.substring(8, 10)}
@@ -117,6 +139,21 @@ const ListItem = ({itemType, item, handleCardPress}) => {
                                 {item.timeTo.substring(11, 16)}
                             </Text>
                         </View>
+                    : itemType === "PROJECT" ?
+                        <View>
+                            <Text>
+                                {
+                                    item.name
+                                }
+                            </Text>
+                            <Text>
+                                {
+                                    item.buldingFacility
+                                }
+                            </Text>
+                        </View>
+                                : <>
+                                </>
                 }
             </View>
         </TouchableOpacity>

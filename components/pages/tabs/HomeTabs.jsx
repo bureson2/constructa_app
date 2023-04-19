@@ -9,33 +9,42 @@ import React from "react";
 
 const HomeTabs = () => {
     return (
-        <View style={styles.tabCol}>
-            <ScreenHeader title={"Hlavní menu"}/>
+        <ImageBackground
+            source={require("../../../assets/backgrounds/basicBG.png")}
+            resizeMode="cover"
+            style={styles.background}
+        >
 
-            <View style={styles.tabLines}>
-                <AttendanceBlock/>
+            <View style={styles.container}>
+                <View style={styles.tabCol}>
+                    <ScreenHeader title={"Hlavní menu"}/>
+
+                    <View style={styles.tabLines}>
+                        <AttendanceBlock/>
+                    </View>
+                    <View style={styles.tabLines}>
+                        <MenuIconButton title={"Stazka"}
+                                        icon={ICONS.cars}
+                                        routeTo={"car_report/empty"}
+                        />
+                        <MenuIconButton title={"Stavební deník"}
+                                        icon={ICONS.ing}
+                                        routeTo={"construction_report/create"}
+                        />
+                    </View>
+                    <View style={styles.tabLines}>
+                        <MenuIconButton title={"Projekty"}
+                                        icon={ICONS.work}
+                                        routeTo={"projects/projects"}
+                        />
+                        <MenuIconButton title={"Nemoc"}
+                                        icon={ICONS.illnes}
+                                        routeTo={"sick/sick"}
+                        />
+                    </View>
+                </View>
             </View>
-            <View style={styles.tabLines}>
-                <MenuIconButton title={"Stazka"}
-                                icon={ICONS.cars}
-                                routeTo={"car_report/empty"}
-                />
-                <MenuIconButton title={"Stavební deník"}
-                                icon={ICONS.ing}
-                                routeTo={"construction_report/create"}
-                />
-            </View>
-            <View style={styles.tabLines}>
-                <MenuIconButton title={"Projekty"}
-                                icon={ICONS.work}
-                                routeTo={"projects/projects"}
-                />
-                <MenuIconButton title={"Nemoc"}
-                                icon={ICONS.illnes}
-                                routeTo={"sick/sick"}
-                />
-            </View>
-        </View>
+        </ImageBackground>
     )
 }
 

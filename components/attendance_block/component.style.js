@@ -3,7 +3,7 @@ import {COLORS, SIZES, FONT} from "../../constants";
 
 const styles = StyleSheet.create({
     block:{
-        width: 250,
+        width: 320,
         height: 150,
         backgroundColor: COLORS.white,
         color: COLORS.textColor,
