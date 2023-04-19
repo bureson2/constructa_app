@@ -17,7 +17,7 @@ const ListItem = ({itemType, item, handleCardPress}) => {
         } else return ICONS.eye;
     }
 
-    function getReportIcon(type){
+    function getReportIcon(type) {
         if (type === "Nemocenská") {
             return ICONS.illnes;
         } else if (type === "Dovolená") {
@@ -99,22 +99,22 @@ const ListItem = ({itemType, item, handleCardPress}) => {
                         :
                         <View>
                             <Text>
-                                {item.timeFrom.substring(8,10)}
+                                {item.timeFrom.substring(8, 10)}
                                 .
-                                {item.timeFrom.substring(5,7)}
+                                {item.timeFrom.substring(5, 7)}
                                 .&nbsp;
-                                {item.timeFrom.substring(0,4)}
+                                {item.timeFrom.substring(0, 4)}
                                 &nbsp;-&nbsp;
-                                {item.timeFrom.substring(11,16)}
+                                {item.timeFrom.substring(11, 16)}
                             </Text>
                             <Text>
-                                {item.timeTo.substring(8,10)}
+                                {item.timeTo.substring(8, 10)}
                                 .
-                                {item.timeTo.substring(5,7)}
+                                {item.timeTo.substring(5, 7)}
                                 .&nbsp;
-                                {item.timeTo.substring(0,4)}
+                                {item.timeTo.substring(0, 4)}
                                 &nbsp;-&nbsp;
-                                {item.timeTo.substring(11,16)}
+                                {item.timeTo.substring(11, 16)}
                             </Text>
                         </View>
                 }

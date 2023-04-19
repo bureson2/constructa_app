@@ -9,6 +9,7 @@ import {useState} from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {Stack, useRouter} from "expo-router";
 import BlueButton from "../components/buttons/BlueButton";
+import ScreenHeader from "../components/headers/ScreenHeader";
 
 // TODO odstranit default email a heslo
 
@@ -48,6 +49,7 @@ const Login = () => {
             style={styles.background}
             resizeMode="cover"
         >
+            <ScreenHeader title={"Přihlášení"} show={false}/>
             <Text style={styles.loginText}>
                 Přihlášení
             </Text>

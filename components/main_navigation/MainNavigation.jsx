@@ -17,6 +17,7 @@ import {
     tasksIcon,
     tasksFocusedIcon,
 } from '../../constants/icons';
+import ScreenHeader from "../headers/ScreenHeader";
 
 const Tab = createBottomTabNavigator();
 

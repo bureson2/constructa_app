@@ -4,6 +4,8 @@ import {useRouter} from "expo-router";
 import useFetch from "../../../hook/useFetch";
 import {COLORS, SIZES} from "../../../constants";
 import ListItem from "../../list_item/ListItem";
+import ScreenHeader from "../../headers/ScreenHeader";
+import React from "react";
 
 
 const Task = () => {
@@ -21,6 +23,8 @@ const Task = () => {
             style={styles.background}
             resizeMode="cover"
         >
+            <ScreenHeader title={"Seznam úkolů"}/>
+
             <View style={styles.centerFlatList}>
                 {isLoading ? (
                     <ActivityIndicator size='large' color={COLORS.primarySecond}/>

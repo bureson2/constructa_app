@@ -1,11 +1,18 @@
 import styles from "./component.style";
-import {View, Text} from "react-native";
+import {View, Text, TouchableOpacity, Linking} from "react-native";
 import { Svg, Path } from 'react-native-svg';
 import {COLORS} from "../../constants";
+import {useRouter} from "expo-router";
 
-const MenuIconButton = ({title, icon}) => {
+const MenuIconButton = ({title, icon, routeTo}) => {
+    const router = useRouter();
+
+    function handleOnPress() {
+        router.push(`/${routeTo}`);
+    }
+
     return(
-      <View style={styles.tab}>
+      <TouchableOpacity style={styles.tab} onPress={handleOnPress}>
           <View style={styles.circle}>
               <Svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +29,7 @@ const MenuIconButton = ({title, icon}) => {
           <Text style={styles.menuIconText}>
               {title}
           </Text>
-      </View>
+      </TouchableOpacity>
     );
 }
 

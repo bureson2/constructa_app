@@ -46,6 +46,20 @@ const styles = StyleSheet.create({
         fontFamily: FONT.regular,
         marginBottom: 10,
     },
+    map: {
+        width: 250,
+        height: 200,
+        marginBottom: 20,
+    },
+    horizontalButtons: {
+        width: 250,
+        flexDirection: "row",
+        justifyContent: "flex-end",
+        alignItems: "flex-end",
+    },
+    marginButtons: {
+        width: 10,
+    }
 });
 
 export default styles;

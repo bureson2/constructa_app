@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
     centerFlatList:{
         justifyContent: "center",
         alignItems: "center",
+        height: 580,
     },
 });
 

@@ -59,20 +59,6 @@ const EmployeeDetail = () => {
                     <Text>Jejda, něco se nepodařilo</Text>
                 ) : (
                     <View style={styles.inputs}>
-                        {/*<View>*/}
-                        {/*    <Text style={styles.label}>*/}
-                        {/*        Jméno*/}
-                        {/*    </Text>*/}
-                        {/*    <TextInput*/}
-                        {/*        value={*/}
-                        {/*            (data.titleBeforeName ? data.titleBeforeName + " " : "")*/}
-                        {/*            + data.firstname + " " + data.lastname + " " +*/}
-                        {/*            (data.titleAfterName ? data.titleAfterName : "")*/}
-                        {/*        }*/}
-                        {/*        style={styles.inputText}*/}
-                        {/*        editable={false}*/}
-                        {/*    />*/}
-                        {/*</View>*/}
                         <View>
                             <Text style={styles.label}>
                                 Pozice

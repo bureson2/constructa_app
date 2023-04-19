@@ -4,6 +4,8 @@ import {useRouter} from "expo-router";
 import useFetch from "../../../hook/useFetch";
 import {COLORS, SIZES} from "../../../constants";
 import ListItem from "../../list_item/ListItem";
+import ScreenHeader from "../../headers/ScreenHeader";
+import React from "react";
 
 
 const WorkReport = () => {
@@ -19,6 +21,8 @@ const WorkReport = () => {
             style={styles.background}
             resizeMode="cover"
         >
+            <ScreenHeader title={"Docházka"}/>
+
             <View style={styles.centerFlatList}>
                 {isLoading ? (
                     <ActivityIndicator size='large' color={COLORS.primarySecond}/>

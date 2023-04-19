@@ -2,9 +2,11 @@ import styles from "./component.style";
 import {View, Text, ActivityIndicator, FlatList, ImageBackground} from "react-native";
 import {useRouter} from "expo-router";
 import useFetch from "../../../hook/useFetch";
-import {useState} from "react";
+import React, {useState} from "react";
 import ListItem from "../../list_item/ListItem";
 import {COLORS, SIZES} from "../../../constants";
+import ScreenHeader from "../../headers/ScreenHeader";
+import {useRoute} from "@react-navigation/native";
 
 
 const Employee = () => {
@@ -22,6 +24,8 @@ const Employee = () => {
             style={styles.background}
             resizeMode="cover"
         >
+            <ScreenHeader title={"Kontakty"}/>
+
             <View style={styles.centerFlatList}>
                 {isLoading ? (
                     <ActivityIndicator size='large' color={COLORS.primarySecond} />
