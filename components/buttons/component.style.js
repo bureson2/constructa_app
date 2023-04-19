@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     blueButton:{
         backgroundColor: COLORS.primarySecond,
         width: 250,
-        marginLeft: 25,
+        // marginLeft: 25,
         marginTop: 15,
         borderRadius: 5,
         textAlign: "center",

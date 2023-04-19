@@ -14,8 +14,6 @@ const TaskDetail = () => {
     // TODO stav prepinatelny)
 
     const params = useSearchParams();
-    const navigation = useNavigation();
-    const router = useRouter();
 
     const { data, isLoading, error, refetch } = useFetch("tasks/" + params.id);
     const [refreshing, setRefreshing] = useState(false);
@@ -50,8 +48,9 @@ const TaskDetail = () => {
                                 Popis úkolu
                             </Text>
                             <TextInput
-                                multiline={true} // umožňuje vícero řádkový text
-                                onContentSizeChange={handleContentSizeChange} // aktualizuje výšku TextInputu na základě velikosti obsahu
+                                multiline={true}
+                                editable={false}
+                                onContentSizeChange={handleContentSizeChange}
                                 style={{ height: inputHeight,
                                     width: 250, color: COLORS.textColor,
                                     backgroundColor: COLORS.secondary,
@@ -64,7 +63,6 @@ const TaskDetail = () => {
                                     padding: 15,
                                     fontSize: SIZES.medium,
                                     marginBottom: 20, }}
-                                // nastaví výšku a šířku TextInputu
                                 value={data.description}
                             />
                         </View>

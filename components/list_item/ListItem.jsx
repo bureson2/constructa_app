@@ -33,6 +33,14 @@ const ListItem = ({itemType, item, handleCardPress}) => {
         } else return ICONS.work;
     }
 
+    function getConstructionReportIcon(type) {
+        if (type === "Dokončeno") {
+            return ICONS.check;
+        } else if (type === "Blokováno") {
+            return ICONS.pause;
+        } else return ICONS.work;
+    }
+
 
     return (
         <TouchableOpacity
@@ -81,6 +89,19 @@ const ListItem = ({itemType, item, handleCardPress}) => {
                             fill={COLORS.textColor}
                         />
                     </Svg>
+                    : itemType === "CONSTRUCTIONREPORT" ?
+                    <Svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="30"
+                        viewBox="0 96 960 960"
+                        width="30"
+                    >
+                        <Path
+                            d={getConstructionReportIcon(item.state)}
+                            fill={COLORS.textColor}
+                        />
+                    </Svg>
+
                     : <>
                     </>
                 }
@@ -149,6 +170,23 @@ const ListItem = ({itemType, item, handleCardPress}) => {
                             <Text>
                                 {
                                     item.buldingFacility
+                                }
+                            </Text>
+                        </View>
+                    : itemType === "CONSTRUCTIONREPORT" ?
+                        <View>
+                            <Text>
+                                {item.date.substring(8, 10)}
+                                .
+                                {item.date.substring(5, 7)}
+                                .&nbsp;
+                                {item.date.substring(0, 4)}
+                                &nbsp;-&nbsp;
+                                {item.date.substring(11, 16)}
+                            </Text>
+                            <Text>
+                                {
+                                    item.taskName
                                 }
                             </Text>
                         </View>

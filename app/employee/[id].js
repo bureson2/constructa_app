@@ -21,17 +21,8 @@ import AttendanceButton from "../../components/buttons/AttendanceButton";
 
 const EmployeeDetail = () => {
     const params = useSearchParams();
-    const navigation = useNavigation();
-    const router = useRouter();
 
     const { data, isLoading, error, refetch } = useFetch("users/" + params.id);
-    const [refreshing, setRefreshing] = useState(false);
-
-    const onRefresh = useCallback(() => {
-        setRefreshing(true);
-        refetch()
-        setRefreshing(false)
-    }, []);
 
     function handleCallPress() {
         Linking.openURL(`tel:${data.phone}`);

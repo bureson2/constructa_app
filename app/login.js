@@ -50,43 +50,45 @@ const Login = () => {
             resizeMode="cover"
         >
             <ScreenHeader title={"Přihlášení"} show={false}/>
-            <Text style={styles.loginText}>
-                Přihlášení
-            </Text>
-            <View style={styles.container}>
-                <View>
-                    <Text style={styles.label}>
-                        Email
-                    </Text>
-                    <TextInput
-                        value={email}
-                        style={styles.inputText}
-                        placeholder="Email..."
-                        placeholderTextColor="#003f5c"
-                        autoCompleteType="email"
-                        keyboardType="email-address"
-                        onChangeText={text => setEmail(text)}
-                    />
+            <View style={{ height: '100%', alignItems: "center", justifyContent: "center" }}>
+                <Text style={styles.loginText}>
+                    Přihlášení
+                </Text>
+                <View style={styles.container}>
+                    <View>
+                        <Text style={styles.label}>
+                            Email
+                        </Text>
+                        <TextInput
+                            value={email}
+                            style={styles.inputText}
+                            placeholder="Email..."
+                            placeholderTextColor="#003f5c"
+                            autoCompleteType="email"
+                            keyboardType="email-address"
+                            onChangeText={text => setEmail(text)}
+                        />
+                    </View>
+
+                    <View>
+                        <Text style={styles.label}>
+                            Heslo
+                        </Text>
+                        <TextInput
+                            value={password}
+                            style={styles.inputText}
+                            placeholder="Heslo..."
+                            placeholderTextColor="#003f5c"
+                            autoCompleteType="password"
+                            secureTextEntry={true}
+                            onChangeText={text => setPassword(text)}
+                        />
+                    </View>
+                    <View style={{justifyContent: "center", alignItems: "center"}}>
+                        <BlueButton text={"Přihlásit se"} onPress={handleLogin}/>
+                    </View>
+
                 </View>
-
-                <View>
-                    <Text style={styles.label}>
-                        Heslo
-                    </Text>
-                    <TextInput
-                        value={password}
-                        style={styles.inputText}
-                        placeholder="Heslo..."
-                        placeholderTextColor="#003f5c"
-                        autoCompleteType="password"
-                        secureTextEntry={true}
-                        onChangeText={text => setPassword(text)}
-                    />
-                </View>
-
-                <BlueButton text={"Přihlásit se"} onPress={handleLogin}/>
-
-
             </View>
         </ImageBackground>
     )
