@@ -13,6 +13,8 @@ import ScreenHeader from "../components/headers/ScreenHeader";
 
 // TODO odstranit default email a heslo
 
+const origin = "192.168.2.31";
+
 const Login = () => {
     const router = useRouter()
     const [email, setEmail] = useState('email@email.cz');
@@ -21,7 +23,7 @@ const Login = () => {
     const handleLogin = async () => {
 
         try {
-            const response = await fetch('http://192.168.0.171:8080/api/v1/auth/authenticate', {
+            const response = await fetch(`http://${origin}:8080/api/v1/auth/authenticate`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

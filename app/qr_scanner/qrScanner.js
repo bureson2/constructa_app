@@ -6,9 +6,13 @@ import ScreenHeader from "../../components/headers/ScreenHeader";
 import styles from "./component.style";
 import {useRoute} from "@react-navigation/native";
 import {useRouter} from "expo-router";
+import { LogBox } from "react-native";
+
 
 
 const qrScanner = () => {
+    LogBox.ignoreAllLogs(true);
+
     const [hasCameraPermission, setHasCameraPermission] = useState(null);
     const router = useRouter();
 
@@ -43,7 +47,7 @@ const qrScanner = () => {
 
     return (
         <View style={styles.container}>
-            <ScreenHeader pageTitle={""} />
+            <ScreenHeader title={"QR Scanner"} />
             <BarCodeScanner
                 style={styles.camera}
                 onBarCodeScanned={handleBarCodeScanned}

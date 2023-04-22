@@ -14,18 +14,17 @@ const HomeTabs = () => {
             resizeMode="cover"
             style={styles.background}
         >
+            <ScreenHeader title={"Hlavní menu"} qrCode={true}/>
 
             <View style={styles.container}>
                 <View style={styles.tabCol}>
-                    <ScreenHeader title={"Hlavní menu"}/>
-
                     <View style={styles.tabLines}>
                         <AttendanceBlock/>
                     </View>
                     <View style={styles.tabLines}>
                         <MenuIconButton title={"Stazka"}
                                         icon={ICONS.cars}
-                                        routeTo={"car_report/empty"}
+                                        routeTo={"qr_scanner/qrScanner"}
                         />
                         <MenuIconButton title={"Stavební deník"}
                                         icon={ICONS.ing}

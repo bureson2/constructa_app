@@ -10,7 +10,7 @@ import React from "react";
 
 const WorkReport = () => {
     const router = useRouter();
-    const {data, isLoading, error} = useFetch("work-reports");
+    const {data, isLoading, error} = useFetch("work-reports/my");
 
     const handleCardPress = (item) => {
     };

@@ -1,12 +1,21 @@
 import styles from "./component.style";
 import {COLORS} from "../../constants";
 import {View, Text, TouchableOpacity} from "react-native";
-import {Stack} from "expo-router";
+import {Stack, useRouter} from "expo-router";
 import {Path, Svg} from "react-native-svg";
 import {ICONS} from "../../constants/icons";
 // import LinearGradient from 'react-native-linear-gradient';
 
-const ScreenHeader = ({title, show, qrCode, onQrPress}) => {
+
+
+const ScreenHeader = ({title, show, qrCode}) => {
+
+    const router = useRouter();
+
+    function onQrPressHandle(){
+        router.push(`/qr_scanner/qrScanner`);
+    }
+
     return (
         <Stack.Screen
             options={{
@@ -17,7 +26,8 @@ const ScreenHeader = ({title, show, qrCode, onQrPress}) => {
                 headerShown: show !== false,
                 headerRight: () => (
                     qrCode ?
-                        <TouchableOpacity onPress={onQrPress}>
+                        <TouchableOpacity onPress={onQrPressHandle}
+                        style={{ marginRight: title==="Hlavní menu" ? 10 : 0}}>
                             <Svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 height="40"

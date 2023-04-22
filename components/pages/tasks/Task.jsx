@@ -10,7 +10,7 @@ import React from "react";
 const Task = () => {
 
     const router = useRouter();
-    const {data, isLoading, error} = useFetch("tasks");
+    const {data, isLoading, error} = useFetch("tasks/my");
 
     const handleCardPress = (item) => {
         router.push(`/task/${item.id}`);

@@ -14,7 +14,7 @@ const Home = () => {
 
     return (
         <>
-            <ScreenHeader title={""} show={false}/>
+            <ScreenHeader title={""} show={false} />
             <MainNavigation />
         </>
     );

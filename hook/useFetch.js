@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
+const origin = "192.168.2.31";
 
 const useFetch = (endpoint) => {
     const [token, setToken] = useState(null);
@@ -25,7 +25,7 @@ const useFetch = (endpoint) => {
                 setIsLoading(true);
                 setError(null);
                 try {
-                    const response = await fetch(`http://192.168.0.171:8080/api/v1/${endpoint}`, {
+                    const response = await fetch(`http://${origin}:8080/api/v1/${endpoint}`, {
                         headers: {
                             Authorization: `Bearer ${token}`,
                         },
@@ -40,7 +40,7 @@ const useFetch = (endpoint) => {
             }
         };
         fetchData();
-    }, [`http://192.168.0.171:8080/api/v1/${endpoint}`, token]);
+    }, [`http://${origin}:8080/api/v1/${endpoint}`, token]);
 
     return { data, isLoading, error };
 };
