@@ -14,6 +14,7 @@ const sendData = async (endpoint, data, token) => {
             body: JSON.stringify(data),
         });
 
+        console.log(JSON.stringify(data));
         const responseData = await response.json();
         return responseData;
     } catch (error) {

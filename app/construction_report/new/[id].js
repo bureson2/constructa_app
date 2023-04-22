@@ -10,6 +10,7 @@ import DateTimeInput from "../../../components/date_input/DateTimeInput";
 import BlueButton from "../../../components/buttons/BlueButton";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import DateInput from "../../../components/date_input/DateInput";
+import { Picker } from "@react-native-picker/picker";
 
 const PreparedConstructionReport = () => {
     const params = useSearchParams();
@@ -23,7 +24,7 @@ const PreparedConstructionReport = () => {
     const [taskName, setTaskName] = useState('');
     const [note, setNote] = useState('');
     const [weather, setWeather] = useState('');
-    const [state, setState] = useState('IN_PROGRESS');
+    const [state, setState] = useState("IN_PROGRESS");
     const [date, setDate] = useState(new Date());
 
     const [token, setToken] = useState(null);
@@ -53,7 +54,12 @@ const PreparedConstructionReport = () => {
     const handleSubmit = async () => {
         try {
             const dataToSend = {
-                // todo
+                taskName: taskName,
+                note: note,
+                date: date,
+                weather: weather,
+                state: state,
+                projectId: params.id,
             };
 
             if (token) {
@@ -138,7 +144,6 @@ const PreparedConstructionReport = () => {
                                 Poznámka
                             </Text>
                             <TextInput
-                                editable={false}
                                 multiline={true}
                                 onContentSizeChange={handleNoteSizeChange}
                                 style={{
@@ -164,7 +169,6 @@ const PreparedConstructionReport = () => {
                                 Počasí
                             </Text>
                             <TextInput
-                                editable={false}
                                 multiline={true}
                                 onContentSizeChange={handleWeatherSizeChange}
                                 style={{
@@ -190,9 +194,16 @@ const PreparedConstructionReport = () => {
                             <Text style={styles.label}>
                                 Stav
                             </Text>
-                        {/*    TODO */}
+                            <Picker
+                                selectedValue={state}
+                                onValueChange={(itemValue, itemIndex) => setState(itemValue)}
+                                style={styles.inputText}
+                            >
+                                <Picker.Item label="Rozpracováno" value="IN_PROGRESS" />
+                                <Picker.Item label="Dokončeno" value="FINISHED" />
+                                <Picker.Item label="Blokováno" value="BLOCKED" />
+                            </Picker>
                         </View>
-
 
                         <BlueButton text={"Potvrdit"} onPress={handleSubmit}/>
                     </View>
