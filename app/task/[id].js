@@ -3,24 +3,71 @@ import {ActivityIndicator, ImageBackground, Text, TextInput, View, ScrollView} f
 import {COLORS, SIZES} from "../../constants";
 import {useNavigation, useRouter, useSearchParams} from "expo-router";
 import useFetch from "../../hook/useFetch";
-import {useCallback, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import ScreenHeader from "../../components/headers/ScreenHeader";
-import MapView, { Marker } from 'react-native-maps';
+import MapView, {Marker} from 'react-native-maps';
 import AttendanceButton from "../../components/buttons/AttendanceButton";
 import {ICONS} from "../../constants/icons";
+import sendData from "../../hook/sendData";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const TaskDetail = () => {
 
-    // TODO stav prepinatelny)
-
     const params = useSearchParams();
+    const router = useRouter();
 
-    const { data, isLoading, error, refetch } = useFetch("tasks/" + params.id);
+    // TODO onLoading pri aktualizaci stavu
+
+    const {data, isLoading, error, refetch} = useFetch("tasks/" + params.id);
     const [refreshing, setRefreshing] = useState(false);
     const [inputHeight, setInputHeight] = useState(50);
+    const [token, setToken] = useState(null);
+
+    useEffect(() => {
+        const fetchToken = async () => {
+            const storedToken = await AsyncStorage.getItem("token");
+            if (storedToken) {
+                setToken(storedToken);
+            }
+        };
+        fetchToken();
+    }, []);
 
     function handleContentSizeChange(event) {
         setInputHeight(event.nativeEvent.contentSize.height); // aktualizovat výšku TextInputu na základě velikosti obsahu
+    }
+
+    const onPressFinish = async () => {
+        onPressHandle("Hotovo")
+    }
+
+    const onPressStop = async () => {
+        onPressHandle("Pozastaveno")
+    }
+
+    const onPressInProgress = async () => {
+        onPressHandle("V řešení")
+    }
+
+    const onPressHandle = async (state) => {
+        try {
+            const dataToSend = {
+                id: params.id,
+                state: state,
+            };
+
+            console.log(dataToSend);
+
+            if (token) {
+                // await sendData("tasks/state", dataToSend, token);
+                const response = await sendData("tasks/state", dataToSend, token);
+                router.push(`/home`);
+            } else {
+                console.error("No token available");
+            }
+        } catch (error) {
+            console.error("Error while sending data:", error);
+        }
     }
 
     const onRefresh = useCallback(() => {
@@ -51,18 +98,20 @@ const TaskDetail = () => {
                                 multiline={true}
                                 editable={false}
                                 onContentSizeChange={handleContentSizeChange}
-                                style={{ height: inputHeight,
+                                style={{
+                                    height: inputHeight,
                                     width: 250, color: COLORS.textColor,
                                     backgroundColor: COLORS.secondary,
                                     borderRadius: 5,
                                     shadowColor: '#000',
-                                    shadowOffset: { width: 0, height: 2 },
+                                    shadowOffset: {width: 0, height: 2},
                                     shadowOpacity: 0.5,
                                     shadowRadius: 2,
                                     elevation: 5,
                                     padding: 15,
                                     fontSize: SIZES.medium,
-                                    marginBottom: 20, }}
+                                    marginBottom: 20,
+                                }}
                                 value={data.description}
                             />
                         </View>
@@ -81,10 +130,10 @@ const TaskDetail = () => {
                                 Datum zahájení
                             </Text>
                             <TextInput
-                                value={ data.timeFrom ?
-                                    data.timeFrom.substring(8,10) + "." +
-                                    data.timeFrom.substring(5,7) + ". " +
-                                    data.timeFrom.substring(0,4)
+                                value={data.timeFrom ?
+                                    data.timeFrom.substring(8, 10) + "." +
+                                    data.timeFrom.substring(5, 7) + ". " +
+                                    data.timeFrom.substring(0, 4)
                                     : ""
                                 }
                                 style={styles.inputText}
@@ -98,11 +147,11 @@ const TaskDetail = () => {
                             <TextInput
                                 value={
                                     data.timeTo ?
-                                        data.timeTo.substring(8,10) + "." +
-                                        data.timeTo.substring(5,7) + ". " +
-                                        data.timeTo.substring(0,4)
+                                        data.timeTo.substring(8, 10) + "." +
+                                        data.timeTo.substring(5, 7) + ". " +
+                                        data.timeTo.substring(0, 4)
                                         : ""
-                            }
+                                }
                                 style={styles.inputText}
                                 editable={false}
                             />
@@ -119,8 +168,8 @@ const TaskDetail = () => {
                             <MapView
                                 style={styles.map}
                                 initialRegion={{
-                                    latitude: data.latitude?data.latitude : 50.073658,
-                                    longitude: data.longitude?data.longitude : 14.41854,
+                                    latitude: data.latitude ? data.latitude : 50.073658,
+                                    longitude: data.longitude ? data.longitude : 14.41854,
                                     latitudeDelta: 0.0922,
                                     longitudeDelta: 0.0421,
                                 }}
@@ -128,8 +177,8 @@ const TaskDetail = () => {
                             >
                                 <Marker
                                     coordinate={{
-                                        latitude: data.latitude?data.latitude : 50.073658,
-                                        longitude: data.longitude?data.longitude : 14.41854,
+                                        latitude: data.latitude ? data.latitude : 50.073658,
+                                        longitude: data.longitude ? data.longitude : 14.41854,
                                     }}
                                     title={data.locationName}
                                     description={"data.description"}
@@ -141,7 +190,7 @@ const TaskDetail = () => {
                                 Zadavatel
                             </Text>
                             <TextInput
-                                value={ data.author ?
+                                value={data.author ?
                                     (data.author.titleBeforeName ? data.author.titleBeforeName + " " : "")
                                     + data.author.firstname + " " + data.author.lastname + " " +
                                     (data.author.titleAfterName ? data.author.titleAfterName : "")
@@ -151,11 +200,14 @@ const TaskDetail = () => {
                             />
                         </View>
                         <View style={styles.horizontalButtons}>
-                            <AttendanceButton icon={ICONS.work} />
-                            <View style={styles.marginButtons} />
-                            <AttendanceButton icon={ICONS.pause} />
-                            <View style={styles.marginButtons} />
-                            <AttendanceButton icon={ICONS.check} />
+                            <AttendanceButton icon={ICONS.work}
+                                              onPress={onPressInProgress}/>
+                            <View style={styles.marginButtons}/>
+                            <AttendanceButton icon={ICONS.pause}
+                                              onPress={onPressStop}/>
+                            <View style={styles.marginButtons}/>
+                            <AttendanceButton icon={ICONS.check}
+                                              onPress={onPressFinish}/>
                         </View>
                     </View>
                 )}

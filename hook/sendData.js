@@ -5,7 +5,6 @@ const origin = "192.168.2.31";
 
 const sendData = async (endpoint, data, token) => {
     try {
-        console.log(JSON.stringify(data))
         const response = await fetch(`http://${origin}:8080/api/v1/${endpoint}`, {
             method: "POST",
             headers: {

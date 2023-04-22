@@ -8,7 +8,7 @@ import {ICONS} from "../../constants/icons";
 
 
 
-const ScreenHeader = ({title, show, qrCode}) => {
+const ScreenHeader = ({title, show}) => {
 
     const router = useRouter();
 
@@ -24,25 +24,25 @@ const ScreenHeader = ({title, show, qrCode}) => {
                 headerTitle: title,
                 headerTitleStyle: {color: COLORS.textColor},
                 headerShown: show !== false,
-                headerRight: () => (
-                    qrCode ?
-                        <TouchableOpacity onPress={onQrPressHandle}
-                        style={{ marginRight: title==="Hlavní menu" ? 10 : 0}}>
-                            <Svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                height="40"
-                                viewBox="0 96 960 960"
-                                width="40"
-                            >
-                                <Path
-                                    d={ICONS.qr}
-                                    fill={COLORS.textColor}
-                                />
-                            </Svg>
-                        </TouchableOpacity>
-                        :
-                        <></>
-                ),
+                // headerRight: () => (
+                //     qrCode ?
+                //         <TouchableOpacity onPress={onQrPressHandle}
+                //         style={{ marginRight: title==="Hlavní menu" ? 10 : 0}}>
+                //             <Svg
+                //                 xmlns="http://www.w3.org/2000/svg"
+                //                 height="40"
+                //                 viewBox="0 96 960 960"
+                //                 width="40"
+                //             >
+                //                 <Path
+                //                     d={ICONS.qr}
+                //                     fill={COLORS.textColor}
+                //                 />
+                //             </Svg>
+                //         </TouchableOpacity>
+                //         :
+                //         <></>
+                // ),
 
             }}
 

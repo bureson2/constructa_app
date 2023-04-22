@@ -14,7 +14,7 @@ const HomeTabs = () => {
             resizeMode="cover"
             style={styles.background}
         >
-            <ScreenHeader title={"Hlavní menu"} qrCode={true}/>
+            <ScreenHeader title={"Hlavní menu"} />
 
             <View style={styles.container}>
                 <View style={styles.tabCol}>

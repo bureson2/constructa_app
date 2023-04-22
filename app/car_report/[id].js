@@ -26,7 +26,6 @@ const PreparedCarReport = () => {
 
     const {data, isLoading, error, refetch} = useFetch("vehicles/" + params.id);
     const [inputHeight, setInputHeight] = useState(50);
-    // const [sendDataResponse, setSendDataResponse] = useState(null);
 
     const [timeFrom, setTimeFrom] = useState(new Date());
     const [timeTo, setTimeTo] = useState(new Date());
@@ -59,6 +58,7 @@ const PreparedCarReport = () => {
                 timeFrom: timeFrom,
                 timeTo: timeTo,
                 vehicle: params.id,
+                // TODO drive BE
                 driver : 52,
                 originalConditionMotorcycleWatch: data.conditionMotorcycleWatch ,
                 afterworkConditionMotorcycleWatch: afterworkConditionMotorcycleWatch,
