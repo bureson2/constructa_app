@@ -26,9 +26,9 @@ const HomeTabs = () => {
                                         icon={ICONS.cars}
                                         routeTo={"qr_scanner/qrScanner"}
                         />
-                        <MenuIconButton title={"Stavební deník"}
+                        <MenuIconButton title={"Stavební záznam"}
                                         icon={ICONS.ing}
-                                        routeTo={"construction_report/create"}
+                                        routeTo={"qr_scanner/qrScanner"}
                         />
                     </View>
                     <View style={styles.tabLines}>

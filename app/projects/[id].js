@@ -1,14 +1,15 @@
 import styles from "./component.style";
-import {ActivityIndicator, ImageBackground, ScrollView, Text, TextInput, View} from "react-native";
+import {ActivityIndicator, ImageBackground, SafeAreaView, ScrollView, Text, TextInput, View} from "react-native";
 import ScreenHeader from "../../components/headers/ScreenHeader";
 import {useRouter, useSearchParams} from "expo-router";
 import useFetch from "../../hook/useFetch";
-import {useCallback, useState} from "react";
+import React, {useCallback, useState} from "react";
 import {COLORS, SIZES} from "../../constants";
 import MapView, {Marker} from "react-native-maps";
 import AttendanceButton from "../../components/buttons/AttendanceButton";
 import {ICONS} from "../../constants/icons";
 import BlueButton from "../../components/buttons/BlueButton";
+import DateTimeInput from "../../components/date_input/DateTimeInput";
 
 const ProjectDetail = () => {
     const router = useRouter();

@@ -34,6 +34,7 @@ const useFetch = (endpoint) => {
                     setData(data);
                 } catch (error) {
                     setError(error);
+                    console.log(error);
                 } finally {
                     setIsLoading(false);
                 }

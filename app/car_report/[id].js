@@ -58,8 +58,6 @@ const PreparedCarReport = () => {
                 timeFrom: timeFrom,
                 timeTo: timeTo,
                 vehicle: params.id,
-                // TODO drive BE
-                driver : 52,
                 originalConditionMotorcycleWatch: data.conditionMotorcycleWatch ,
                 afterworkConditionMotorcycleWatch: afterworkConditionMotorcycleWatch,
                 cargoMass: cargoMass,
