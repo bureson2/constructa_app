@@ -1,19 +1,22 @@
+import React, { useEffect } from "react"; // Import useEffect
 import styles from "./component.style";
-import {View, Text, ActivityIndicator, FlatList, ImageBackground} from "react-native";
-import {useRouter} from "expo-router";
+import { View, Text, ActivityIndicator, FlatList, ImageBackground } from "react-native";
+import { useRouter } from "expo-router";
 import useFetch from "../../../hook/useFetch";
-import {COLORS, SIZES} from "../../../constants";
+import { COLORS, SIZES } from "../../../constants";
 import ListItem from "../../list_item/ListItem";
 import ScreenHeader from "../../headers/ScreenHeader";
-import React from "react";
-
 
 const WorkReport = () => {
     const router = useRouter();
-    const {data, isLoading, error} = useFetch("work-reports/my");
+    const { data, isLoading, error, refetch } = useFetch("work-reports/my"); // Add refetch function
 
-    const handleCardPress = (item) => {
-    };
+    useEffect(() => {
+        // Call refetch on component mount or any other dependency changes
+        refetch();
+    }, []); // Add dependencies here, if any. Leave it empty for running only on component mount
+
+    const handleCardPress = (item) => {};
 
     return (
         <ImageBackground
@@ -21,31 +24,31 @@ const WorkReport = () => {
             style={styles.background}
             resizeMode="cover"
         >
-            <ScreenHeader title={"Docházka"}/>
+            <ScreenHeader title={"Docházka"} />
 
             <View style={styles.centerFlatList}>
                 {isLoading ? (
-                    <ActivityIndicator size='large' color={COLORS.primarySecond}/>
+                    <ActivityIndicator size="large" color={COLORS.primarySecond} />
                 ) : error ? (
                     <Text>Jejda, něco se nepodařilo</Text>
                 ) : (
                     <FlatList
                         data={data}
                         style={styles.backgroundColor}
-                        renderItem={({item}) => (
-                            <ListItem itemType={"WORKREPORT"}
-                                      item={item}
-                                      handleCardPress={handleCardPress}
+                        renderItem={({ item }) => (
+                            <ListItem
+                                itemType={"WORKREPORT"}
+                                item={item}
+                                handleCardPress={handleCardPress}
                             />
                         )}
                         keyExtractor={(item) => item.id}
-                        contentContainerStyle={{columnGap: SIZES.medium}}
+                        contentContainerStyle={{ columnGap: SIZES.medium }}
                     />
                 )}
             </View>
         </ImageBackground>
-
-    )
-}
+    );
+};
 
 export default WorkReport;

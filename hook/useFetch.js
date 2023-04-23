@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const origin = "192.168.2.31";
@@ -19,31 +19,37 @@ const useFetch = (endpoint) => {
         fetchToken();
     }, []);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            if (token) {
-                setIsLoading(true);
-                setError(null);
-                try {
-                    const response = await fetch(`http://${origin}:8080/api/v1/${endpoint}`, {
-                        headers: {
-                            Authorization: `Bearer ${token}`,
-                        },
-                    });
-                    const data = await response.json();
-                    setData(data);
-                } catch (error) {
-                    setError(error);
-                    console.log(error);
-                } finally {
-                    setIsLoading(false);
-                }
+    const fetchData = useCallback(async () => {
+        if (token) {
+            setIsLoading(true);
+            setError(null);
+            try {
+                const response = await fetch(`http://${origin}:8080/api/v1/${endpoint}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+                const data = await response.json();
+                setData(data);
+            } catch (error) {
+                setError(error);
+                console.log(error);
+            } finally {
+                setIsLoading(false);
             }
-        };
-        fetchData();
+        }
     }, [`http://${origin}:8080/api/v1/${endpoint}`, token]);
 
-    return { data, isLoading, error };
+    useEffect(() => {
+        fetchData();
+    }, [fetchData]);
+
+    const refetch = async () => { // Add async keyword here
+        setIsLoading(true);
+        await fetchData();
+    };
+
+    return { data, isLoading, error, refetch };
 };
 
 export default useFetch;

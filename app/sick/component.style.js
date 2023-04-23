@@ -1,5 +1,5 @@
 import {StyleSheet} from "react-native";
-import {COLORS, SIZES} from "../../constants";
+import {COLORS, FONT, SIZES} from "../../constants";
 
 const styles = StyleSheet.create({
     background:{
@@ -7,9 +7,14 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
+    inputs: {
+        alignItems: "center",
+        justifyContent: "space-evenly",
+        padding: 20,
+    },
     detailTab:{
         width: 320,
-        height: 450,
+        height: 500,
         borderRadius: 10,
         backgroundColor: COLORS.white,
         shadowColor: '#000',
@@ -18,6 +23,12 @@ const styles = StyleSheet.create({
         shadowRadius: 2,
         elevation: 5,
         marginVertical: 20,
+    },
+    label:{
+        color: COLORS.textColor,
+        fontSize: SIZES.medium,
+        fontFamily: FONT.regular,
+        marginBottom: 10,
     },
 });
 
