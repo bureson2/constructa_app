@@ -5,6 +5,14 @@
       "bundler": "metro"
     },
     "name": "constructa_app",
-    "slug": "constructa_app"
+    "slug": "constructa_app",
+    "ios": {
+      "infoPlist": {
+        "UIBackgroundModes": ["fetch"]
+      }
+    },
+    "android": {
+      "permissions": ["RECEIVE_BOOT_COMPLETED"]
+    }
   }
 }
