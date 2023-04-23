@@ -13,7 +13,7 @@ import ScreenHeader from "../components/headers/ScreenHeader";
 
 // TODO odstranit default email a heslo
 
-const origin = "192.168.2.31";
+const origin = "192.168.1.9";
 
 const Login = () => {
     const router = useRouter()

@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const origin = "192.168.2.31";
+const origin = "192.168.1.9";
 
 const useFetch = (endpoint) => {
     const [token, setToken] = useState(null);
