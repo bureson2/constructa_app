@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./component.style";
+import styles from "../component.style";
 import {FlatList, ImageBackground, Text, View} from "react-native";
 import useFetch from "../../../hook/useFetch";
 import {SIZES} from "../../../constants";

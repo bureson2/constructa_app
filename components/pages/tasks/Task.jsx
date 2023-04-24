@@ -1,4 +1,4 @@
-import styles from "./component.style";
+import styles from "../component.style";
 import {FlatList, ImageBackground, Text, View} from "react-native";
 import {useRouter} from "expo-router";
 import useFetch from "../../../hook/useFetch";

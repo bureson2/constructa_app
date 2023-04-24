@@ -1,4 +1,4 @@
-import styles from "./component.style";
+import styles from "../component.style";
 import {ImageBackground, View} from "react-native";
 import MenuIconButton from "../../buttons/MenuIconButton";
 import {ICONS} from "../../../constants/icons";

@@ -1,4 +1,4 @@
-import styles from "./component.style";
+import styles from "../component.style";
 import {FlatList, ImageBackground, Text, View} from "react-native";
 import {useRouter} from "expo-router";
 import useFetch from "../../../hook/useFetch";
@@ -7,7 +7,6 @@ import ListItem from "../../list_item/ListItem";
 import {SIZES} from "../../../constants";
 import ScreenHeader from "../../headers/ScreenHeader";
 import Loading from "../../activity_indicator/Loading";
-
 
 const Employee = () => {
 
