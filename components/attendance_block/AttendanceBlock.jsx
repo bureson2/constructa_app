@@ -5,12 +5,16 @@ import styles from './component.style';
 import AttendanceButton from '../buttons/AttendanceButton';
 import {ICONS} from '../../constants/icons';
 import {useRouter} from 'expo-router';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import sendData from "../../hook/sendData";
 
 const AttendanceBlock = ({title, icon}) => {
     const router = useRouter();
     const [time, setTime] = useState(0);
     const [timerOn, setTimerOn] = useState(false);
     const [appState, setAppState] = useState(AppState.currentState);
+    const [token, setToken] = useState(null);
+
 
     useEffect(() => {
         const handleAppStateChange = (nextAppState) => {
@@ -40,12 +44,46 @@ const AttendanceBlock = ({title, icon}) => {
         };
     }, [timerOn, appState]);
 
+    useEffect(() => {
+        const fetchToken = async () => {
+            const storedToken = await AsyncStorage.getItem("token");
+            if (storedToken) {
+                setToken(storedToken);
+            }
+        };
+        fetchToken();
+    }, []);
+
+    const handleOnStopPress = async () => {
+        try {
+            const dataToSend = {
+                time: time,
+            };
+
+            if (token) {
+                const response = await sendData("work-reports/end-work", dataToSend, token);
+                setTimerOn(false);
+                setTime(0);
+                console.log("ahoj")
+
+            } else {
+                console.error("No token available");
+            }
+        } catch (error) {
+            console.error("Error while sending data:", error);
+        }
+    };
+
     const handleOnPlayPress = () => {
         setTimerOn(true);
         router.push(`/qr_scanner/qrScanner`);
     };
 
-    const handleOnStopPress = () => {
+    const handleOnContinuePress = () => {
+        setTimerOn(true);
+    };
+
+    const handleOnPausePress = () => {
         setTimerOn(false);
     };
 
@@ -59,7 +97,14 @@ const AttendanceBlock = ({title, icon}) => {
         <View style={styles.block}>
             <Text style={styles.title}>Docházka</Text>
             <View style={styles.timerBlock}>
-                <AttendanceButton icon={ICONS.play} onPress={handleOnPlayPress} />
+                { time === 0 ?
+                    <AttendanceButton icon={ICONS.play} onPress={handleOnPlayPress} />
+                    :
+                    timerOn ?
+                    <AttendanceButton icon={ICONS.pause} onPress={handleOnPausePress} />
+                    :
+                    <AttendanceButton icon={ICONS.play} onPress={handleOnContinuePress} />
+                }
                 <Text style={styles.time}>{displayTime(time)}</Text>
                 <AttendanceButton icon={ICONS.stop} onPress={handleOnStopPress} />
             </View>

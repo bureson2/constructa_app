@@ -19,7 +19,7 @@ const HomeTabs = () => {
             <View style={styles.container}>
                 <View style={styles.tabCol}>
                     <View style={styles.tabLines}>
-                        <AttendanceBlock/>
+                        <AttendanceBlock />
                     </View>
                     <View style={styles.tabLines}>
                         <MenuIconButton title={"Stazka"}

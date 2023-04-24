@@ -44,13 +44,12 @@ const PreparedAttendance = () => {
         try {
             const dataToSend = {
                 locationId: params.id,
-                latitude: location.latitude,
-                longitude: location.longitude,
+                latitude: location ? location.latitude : null,
+                longitude: location ? location.longitude : null,
             };
 
             if (token) {
                 const response = await sendData("work-reports/attendance", dataToSend, token);
-                // setSendDataResponse(response);
                 router.push(`/home`);
             } else {
                 console.error("No token available");
