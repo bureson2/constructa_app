@@ -60,7 +60,13 @@ const styles = StyleSheet.create({
     },
     marginButtons: {
         width: 10,
-    }
+    },
+    container: {
+        flex: 1,
+    },
+    mapCreate: {
+        flex: 1,
+    },
 });
 
 export default styles;
