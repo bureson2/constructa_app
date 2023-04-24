@@ -64,7 +64,6 @@ const AttendanceBlock = ({title, icon}) => {
                 const response = await sendData("work-reports/end-work", dataToSend, token);
                 setTimerOn(false);
                 setTime(0);
-                console.log("ahoj")
 
             } else {
                 console.error("No token available");

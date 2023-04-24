@@ -24,7 +24,7 @@ const Employee = () => {
             style={styles.background}
             resizeMode="cover"
         >
-            <ScreenHeader title={"Kontakty"}/>
+            <ScreenHeader title={"Kontakty"} />
 
             <View style={styles.centerFlatList}>
                 {isLoading ? (

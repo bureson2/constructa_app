@@ -42,7 +42,7 @@ const EmployeeDetail = () => {
                 (data.titleBeforeName ? data.titleBeforeName + " " : "")
                 + data.firstname + " " + data.lastname + " " +
                 (data.titleAfterName ? data.titleAfterName : "")
-            }/>
+            } addTask={true} />
             <View style={styles.detailTab}>
                 {isLoading ? (
                     <ActivityIndicator size='large' color={COLORS.primarySecond} />
