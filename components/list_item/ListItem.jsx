@@ -11,7 +11,7 @@ const ListItem = ({itemType, item, handleCardPress}) => {
         if (state === "Hotovo") {
             return ICONS.check;
         } else if (state === "V řešení") {
-            return ICONS.work;
+            return ICONS.settings;
         } else if (state === "Pozastaveno") {
             return ICONS.pause;
         } else return ICONS.eye;
@@ -30,7 +30,7 @@ const ListItem = ({itemType, item, handleCardPress}) => {
             return ICONS.check;
         } else if (type === "Příprava") {
             return ICONS.prepare;
-        } else return ICONS.work;
+        } else return ICONS.settings;
     }
 
     function getConstructionReportIcon(type) {
@@ -38,9 +38,8 @@ const ListItem = ({itemType, item, handleCardPress}) => {
             return ICONS.check;
         } else if (type === "Blokováno") {
             return ICONS.pause;
-        } else return ICONS.work;
+        } else return ICONS.settings;
     }
-
 
     return (
         <TouchableOpacity
