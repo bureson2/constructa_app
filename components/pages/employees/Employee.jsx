@@ -7,6 +7,7 @@ import ListItem from "../../list_item/ListItem";
 import {COLORS, SIZES} from "../../../constants";
 import ScreenHeader from "../../headers/ScreenHeader";
 import {useRoute} from "@react-navigation/native";
+import Loading from "../../activity_indicator/Loading";
 
 
 const Employee = () => {
@@ -28,7 +29,7 @@ const Employee = () => {
 
             <View style={styles.centerFlatList}>
                 {isLoading ? (
-                    <ActivityIndicator size='large' color={COLORS.primarySecond} />
+                    <Loading />
                 ) : error ? (
                     <Text>Jejda, něco se nepodařilo</Text>
                 ) : (

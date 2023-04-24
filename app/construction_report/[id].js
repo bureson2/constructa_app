@@ -7,6 +7,7 @@ import {ICONS} from "../../constants/icons";
 import {useRouter, useSearchParams} from "expo-router";
 import useFetch from "../../hook/useFetch";
 import {useState} from "react";
+import Loading from "../../components/activity_indicator/Loading";
 
 const ConstructionReportDetail = () => {
 
@@ -41,7 +42,7 @@ const ConstructionReportDetail = () => {
 
             <View style={styles.detailTab}>
                 {isLoading ? (
-                    <ActivityIndicator size='large' color={COLORS.primarySecond} />
+                    <Loading />
                 ) : error ? (
                     <Text>Jejda, něco se nepodařilo</Text>
                 ) : (

@@ -19,6 +19,7 @@ import {COLORS, SIZES} from "../../constants";
 import DateTimeInput from "../../components/date_input/DateTimeInput";
 import BlueButton from "../../components/buttons/BlueButton";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import Loading from "../../components/activity_indicator/Loading";
 
 const PreparedCarReport = () => {
     const params = useSearchParams();
@@ -89,7 +90,7 @@ const PreparedCarReport = () => {
 
             <ScrollView style={styles.detailTab}>
                 {isLoading ? (
-                    <ActivityIndicator size='large' color={COLORS.primarySecond}/>
+                    <Loading />
                 ) : error ? (
                     <Text>Jejda, něco se nepodařilo</Text>
                 ) : (

@@ -1,16 +1,16 @@
 import styles from "./../component.style";
-import {ActivityIndicator, ImageBackground, Text, TextInput, View, ScrollView, SafeAreaView} from "react-native";
+import {ActivityIndicator, ImageBackground, SafeAreaView, ScrollView, Text, TextInput, View} from "react-native";
 import {COLORS, SIZES} from "../../../constants";
-import {useNavigation, useRouter, useSearchParams} from "expo-router";
+import {useRouter, useSearchParams} from "expo-router";
 import useFetch from "../../../hook/useFetch";
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import ScreenHeader from "../../../components/headers/ScreenHeader";
-import MapView, { UrlTile, Marker, PROVIDER_DEFAULT } from "react-native-maps";
+import MapView, {Marker, PROVIDER_DEFAULT, UrlTile} from "react-native-maps";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import DateTimeInput from "../../../components/date_input/DateTimeInput";
-import Geocoder from 'react-native-geocoding';
 import sendData from "../../../hook/sendData";
 import BlueButton from "../../../components/buttons/BlueButton";
+import Loading from "../../../components/activity_indicator/Loading";
 
 const TaskDetail = () => {
 
@@ -18,7 +18,6 @@ const TaskDetail = () => {
     const router = useRouter();
 
     const {data, isLoading, error, refetch} = useFetch("users/" + params.id);
-    const [refreshing, setRefreshing] = useState(false);
     const [inputHeight, setInputHeight] = useState(50);
     const [token, setToken] = useState(null);
     const [timeFrom, setTimeFrom] = useState(new Date());
@@ -26,7 +25,6 @@ const TaskDetail = () => {
     const [taskName, setTaskName] = useState('');
     const [taskDescription, setTaskDescription] = useState('');
     const [taskLocation, setTaskLocation] = useState('');
-    const [markerPosition, setMarkerPosition] = useState([50.073658, 14.418540]);
 
     const [location, setLocation] = useState({
         latitude: 50.073658,
@@ -86,7 +84,7 @@ const TaskDetail = () => {
 
             <ScrollView style={styles.detailTab}>
                 {isLoading ? (
-                    <ActivityIndicator size='large' color={COLORS.primarySecond}/>
+                    <Loading />
                 ) : error ? (
                     <Text>Jejda, něco se nepodařilo</Text>
                 ) : (

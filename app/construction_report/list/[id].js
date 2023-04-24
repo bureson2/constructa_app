@@ -6,6 +6,7 @@ import ListItem from "../../../components/list_item/ListItem";
 import React from "react";
 import {useRouter, useSearchParams} from "expo-router";
 import useFetch from "../../../hook/useFetch";
+import Loading from "../../../components/activity_indicator/Loading";
 
 const ConstructionReports = () => {
 
@@ -28,7 +29,7 @@ const ConstructionReports = () => {
 
             <View style={styles.centerFlatList}>
                 {isLoading ? (
-                    <ActivityIndicator size='large' color={COLORS.primarySecond} />
+                    <Loading />
                 ) : error ? (
                     <Text>Jejda, něco se nepodařilo</Text>
                 ) : (

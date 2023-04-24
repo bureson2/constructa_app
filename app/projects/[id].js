@@ -10,6 +10,7 @@ import AttendanceButton from "../../components/buttons/AttendanceButton";
 import {ICONS} from "../../constants/icons";
 import BlueButton from "../../components/buttons/BlueButton";
 import DateTimeInput from "../../components/date_input/DateTimeInput";
+import Loading from "../../components/activity_indicator/Loading";
 
 const ProjectDetail = () => {
     const router = useRouter();
@@ -43,7 +44,7 @@ const ProjectDetail = () => {
 
             <ScrollView style={styles.detailTab}>
                 {isLoading ? (
-                    <ActivityIndicator size='large' color={COLORS.primarySecond}/>
+                    <Loading />
                 ) : error ? (
                     <Text>Jejda, něco se nepodařilo</Text>
                 ) : (

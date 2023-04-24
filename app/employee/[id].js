@@ -17,6 +17,7 @@ import ScreenHeader from "../../components/headers/ScreenHeader";
 import BlueButton from "../../components/buttons/BlueButton";
 import {ICONS} from "../../constants/icons";
 import AttendanceButton from "../../components/buttons/AttendanceButton";
+import Loading from "../../components/activity_indicator/Loading";
 
 
 const EmployeeDetail = () => {
@@ -45,7 +46,7 @@ const EmployeeDetail = () => {
             } addTask={true} />
             <View style={styles.detailTab}>
                 {isLoading ? (
-                    <ActivityIndicator size='large' color={COLORS.primarySecond} />
+                    <Loading />
                 ) : error ? (
                     <Text>Jejda, něco se nepodařilo</Text>
                 ) : (

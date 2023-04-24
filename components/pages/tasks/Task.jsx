@@ -6,6 +6,7 @@ import {COLORS, SIZES} from "../../../constants";
 import ListItem from "../../list_item/ListItem";
 import ScreenHeader from "../../headers/ScreenHeader";
 import React from "react";
+import Loading from "../../activity_indicator/Loading";
 
 const Task = () => {
 
@@ -26,7 +27,7 @@ const Task = () => {
 
             <View style={styles.centerFlatList}>
                 {isLoading ? (
-                    <ActivityIndicator size='large' color={COLORS.primarySecond}/>
+                    <Loading />
                 ) : error ? (
                     <Text>Jejda, něco se nepodařilo</Text>
                 ) : (

@@ -10,6 +10,7 @@ import AttendanceButton from "../../components/buttons/AttendanceButton";
 import {ICONS} from "../../constants/icons";
 import sendData from "../../hook/sendData";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import Loading from "../../components/activity_indicator/Loading";
 
 const TaskDetail = () => {
 
@@ -85,7 +86,7 @@ const TaskDetail = () => {
             <ScreenHeader title={data.name}/>
             <ScrollView style={styles.detailTab}>
                 {isLoading ? (
-                    <ActivityIndicator size='large' color={COLORS.primarySecond}/>
+                    <Loading />
                 ) : error ? (
                     <Text>Jejda, něco se nepodařilo</Text>
                 ) : (

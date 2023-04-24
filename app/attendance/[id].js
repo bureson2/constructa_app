@@ -11,6 +11,7 @@ import sendData from "../../hook/sendData";
 import * as Location from 'expo-location';
 import { Platform } from 'react-native';
 import Constants from 'expo-constants';
+import Loading from "../../components/activity_indicator/Loading";
 
 const PreparedAttendance = () => {
     const params = useSearchParams();
@@ -86,7 +87,7 @@ const PreparedAttendance = () => {
             <ScreenHeader title={"Záznam docházky"}/>
             <ScrollView style={styles.detailTab}>
                 {isLoading ? (
-                    <ActivityIndicator size='large' color={COLORS.primarySecond}/>
+                    <Loading />
                 ) : error ? (
                     <Text>Jejda, něco se nepodařilo</Text>
                 ) : (
