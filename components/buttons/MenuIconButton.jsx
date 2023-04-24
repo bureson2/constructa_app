@@ -1,6 +1,6 @@
 import styles from "./component.style";
-import {View, Text, TouchableOpacity, Linking} from "react-native";
-import { Svg, Path } from 'react-native-svg';
+import {Text, TouchableOpacity, View} from "react-native";
+import {Path, Svg} from 'react-native-svg';
 import {COLORS} from "../../constants";
 import {useRouter} from "expo-router";
 

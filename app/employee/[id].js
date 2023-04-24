@@ -1,20 +1,8 @@
 import styles from "./component.style";
-import {
-    RefreshControl,
-    Text,
-    ActivityIndicator,
-    ScrollView,
-    ImageBackground,
-    View,
-    TextInput,
-    Linking
-} from "react-native";
-import { useRouter, useSearchParams, useNavigation } from "expo-router";
-import { useCallback, useState } from "react";
+import {ImageBackground, Linking, Text, TextInput, View} from "react-native";
+import {useSearchParams} from "expo-router";
 import useFetch from "../../hook/useFetch";
-import {COLORS} from "../../constants";
 import ScreenHeader from "../../components/headers/ScreenHeader";
-import BlueButton from "../../components/buttons/BlueButton";
 import {ICONS} from "../../constants/icons";
 import AttendanceButton from "../../components/buttons/AttendanceButton";
 import Loading from "../../components/activity_indicator/Loading";

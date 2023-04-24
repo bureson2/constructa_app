@@ -1,6 +1,6 @@
 import styles from "./component.style";
 import ScreenHeader from "../../components/headers/ScreenHeader";
-import {ActivityIndicator, ImageBackground, ScrollView, Text, TextInput, View} from "react-native";
+import {ImageBackground, Platform, ScrollView, Text, TextInput, View} from "react-native";
 import {COLORS, SIZES} from "../../constants";
 import BlueButton from "../../components/buttons/BlueButton";
 import React, {useEffect, useState} from "react";
@@ -9,7 +9,6 @@ import {useRouter, useSearchParams} from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import sendData from "../../hook/sendData";
 import * as Location from 'expo-location';
-import { Platform } from 'react-native';
 import Constants from 'expo-constants';
 import Loading from "../../components/activity_indicator/Loading";
 

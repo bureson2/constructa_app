@@ -1,13 +1,13 @@
 import styles from "./component.style";
-import {View, Text, ImageBackground} from "react-native";
+import {ImageBackground, View} from "react-native";
 import MenuIconButton from "../../buttons/MenuIconButton";
 import {ICONS} from "../../../constants/icons";
 import AttendanceBlock from "../../attendance_block/AttendanceBlock";
 import ScreenHeader from "../../headers/ScreenHeader";
 import React from "react";
 
-
 const HomeTabs = () => {
+
     return (
         <ImageBackground
             source={require("../../../assets/backgrounds/basicBG.png")}

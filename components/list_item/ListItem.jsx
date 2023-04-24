@@ -1,5 +1,5 @@
 import styles from "./component.style";
-import {View, Text, TouchableOpacity, Image} from "react-native";
+import {Text, TouchableOpacity, View} from "react-native";
 import {Path, Svg} from "react-native-svg";
 import {COLORS} from "../../constants";
 import {ICONS} from "../../constants/icons";
@@ -148,6 +148,8 @@ const ListItem = ({itemType, item, handleCardPress}) => {
                                 {item.timeFrom.substring(0, 4)}
                                 &nbsp;-&nbsp;
                                 {item.timeFrom.substring(11, 16)}
+                                &nbsp;(
+                                {Math.floor(item.minutes / 60)}h {item.minutes % 60 !== 0 ? item.minutes % 60 : ""}min)
                             </Text>
                             <Text>
                                 {item.timeTo.substring(8, 10)}

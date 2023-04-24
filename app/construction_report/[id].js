@@ -1,9 +1,7 @@
 import styles from "./component.style";
 import ScreenHeader from "../../components/headers/ScreenHeader";
-import {ActivityIndicator, ImageBackground, Text, TextInput, View, TouchableOpacity} from "react-native";
+import {ImageBackground, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {COLORS, SIZES} from "../../constants";
-import AttendanceButton from "../../components/buttons/AttendanceButton";
-import {ICONS} from "../../constants/icons";
 import {useRouter, useSearchParams} from "expo-router";
 import useFetch from "../../hook/useFetch";
 import {useState} from "react";

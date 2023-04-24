@@ -1,5 +1,5 @@
 import styles from "./../component.style";
-import {ActivityIndicator, ImageBackground, SafeAreaView, ScrollView, Text, TextInput, View} from "react-native";
+import {ImageBackground, SafeAreaView, ScrollView, Text, TextInput, View} from "react-native";
 import {COLORS, SIZES} from "../../../constants";
 import {useRouter, useSearchParams} from "expo-router";
 import useFetch from "../../../hook/useFetch";

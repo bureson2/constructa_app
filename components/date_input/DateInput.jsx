@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { View, TouchableOpacity, Platform, TextInput, Text } from 'react-native';
+import React, {useState} from 'react';
+import {Platform, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import { COLORS } from '../../constants';
 import styles from './component.style';
 
 const DateInput = ({ setDate, date }) => {

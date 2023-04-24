@@ -1,6 +1,6 @@
 import styles from "./component.style";
-import {View, Text, TouchableOpacity} from "react-native";
-import {Svg, Path} from 'react-native-svg';
+import {TouchableOpacity} from "react-native";
+import {Path, Svg} from 'react-native-svg';
 import {COLORS} from "../../constants";
 
 const AttendanceButton = ({icon, onPress}) => {

@@ -1,21 +1,21 @@
-import React, { useEffect } from "react"; // Import useEffect
+import React from "react";
 import styles from "./component.style";
-import { View, Text, ActivityIndicator, FlatList, ImageBackground } from "react-native";
-import { useRouter } from "expo-router";
+import {FlatList, ImageBackground, Text, View} from "react-native";
 import useFetch from "../../../hook/useFetch";
-import { COLORS, SIZES } from "../../../constants";
+import {SIZES} from "../../../constants";
 import ListItem from "../../list_item/ListItem";
 import ScreenHeader from "../../headers/ScreenHeader";
 import Loading from "../../activity_indicator/Loading";
+import {useFocusEffect} from "@react-navigation/native";
 
 const WorkReport = () => {
-    const router = useRouter();
-    const { data, isLoading, error, refetch } = useFetch("work-reports/my"); // Add refetch function
+    const { data, isLoading, error, refetch } = useFetch("work-reports/my");
 
-    useEffect(() => {
-        // Call refetch on component mount or any other dependency changes
-        refetch();
-    }, []); // Add dependencies here, if any. Leave it empty for running only on component mount
+    useFocusEffect(
+        React.useCallback(() => {
+            refetch();
+        }, [])
+    );
 
     const handleCardPress = (item) => {};
 

@@ -1,12 +1,11 @@
 import styles from "./component.style";
-import {View, Text, ActivityIndicator, FlatList, ImageBackground} from "react-native";
+import {FlatList, ImageBackground, Text, View} from "react-native";
 import {useRouter} from "expo-router";
 import useFetch from "../../../hook/useFetch";
-import React, {useState} from "react";
+import React from "react";
 import ListItem from "../../list_item/ListItem";
-import {COLORS, SIZES} from "../../../constants";
+import {SIZES} from "../../../constants";
 import ScreenHeader from "../../headers/ScreenHeader";
-import {useRoute} from "@react-navigation/native";
 import Loading from "../../activity_indicator/Loading";
 
 

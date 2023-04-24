@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
         width: 250,
         height: 200,
         marginBottom: 20,
-    //     TODO border radius
     },
     horizontalButtons: {
         width: 250,

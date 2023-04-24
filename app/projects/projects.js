@@ -1,7 +1,7 @@
 import styles from "./component.style";
-import {ActivityIndicator, FlatList, ImageBackground, Text, View} from "react-native";
+import {FlatList, ImageBackground, Text, View} from "react-native";
 import ScreenHeader from "../../components/headers/ScreenHeader";
-import {COLORS, SIZES} from "../../constants";
+import {SIZES} from "../../constants";
 import ListItem from "../../components/list_item/ListItem";
 import React from "react";
 import {useRouter} from "expo-router";

@@ -1,12 +1,10 @@
-import React, {Component, useEffect, useState} from 'react';
-import {View, StyleSheet} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {LogBox, View} from 'react-native';
 import {BarCodeScanner} from 'expo-barcode-scanner';
 import * as Permissions from 'expo-permissions';
 import ScreenHeader from "../../components/headers/ScreenHeader";
 import styles from "./component.style";
-import {useRoute} from "@react-navigation/native";
 import {useRouter} from "expo-router";
-import {LogBox} from "react-native";
 
 
 const qrScanner = () => {
@@ -23,7 +21,6 @@ const qrScanner = () => {
     }, []);
 
     const handleBarCodeScanned = ({type, data}) => {
-        console.log(data);
         try {
             const jsonData = JSON.parse(data);
             let path = "";

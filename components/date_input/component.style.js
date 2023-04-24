@@ -8,8 +8,6 @@ const styles = StyleSheet.create({
     textView: {
         height: 50,
         width: 180,
-        // borderColor: 'gray',
-        // borderWidth: 1,
         paddingHorizontal: 10,
         marginBottom: 10,
         color: COLORS.textColor,

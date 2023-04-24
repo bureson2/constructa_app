@@ -1,12 +1,8 @@
-import styles from "./component.style";
 import {COLORS} from "../../constants";
-import {View, Text, TouchableOpacity} from "react-native";
+import {TouchableOpacity} from "react-native";
 import {Stack, useRouter, useSearchParams} from "expo-router";
 import {Path, Svg} from "react-native-svg";
 import {ICONS} from "../../constants/icons";
-// import LinearGradient from 'react-native-linear-gradient';
-
-
 
 const ScreenHeader = ({title, show, addTask}) => {
 

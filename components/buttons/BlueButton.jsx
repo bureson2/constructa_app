@@ -1,7 +1,5 @@
 import styles from "./component.style";
-import {View, Text, TouchableOpacity} from "react-native";
-import {Svg, Path} from 'react-native-svg';
-import {COLORS} from "../../constants";
+import {Text, TouchableOpacity} from "react-native";
 
 const BlueButton = ({text, onPress}) => {
     return (

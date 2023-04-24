@@ -1,21 +1,28 @@
 import styles from "./component.style";
-import {View, Text, ActivityIndicator, FlatList, ImageBackground} from "react-native";
+import {FlatList, ImageBackground, Text, View} from "react-native";
 import {useRouter} from "expo-router";
 import useFetch from "../../../hook/useFetch";
-import {COLORS, SIZES} from "../../../constants";
+import {SIZES} from "../../../constants";
 import ListItem from "../../list_item/ListItem";
 import ScreenHeader from "../../headers/ScreenHeader";
 import React from "react";
 import Loading from "../../activity_indicator/Loading";
+import {useFocusEffect} from "@react-navigation/native";
 
 const Task = () => {
 
     const router = useRouter();
-    const {data, isLoading, error} = useFetch("tasks/my");
+    const {data, isLoading, error, refetch} = useFetch("tasks/my");
 
     const handleCardPress = (item) => {
         router.push(`/task/${item.id}`);
     };
+
+    useFocusEffect(
+        React.useCallback(() => {
+            refetch();
+        }, [])
+    );
 
     return (
         <ImageBackground

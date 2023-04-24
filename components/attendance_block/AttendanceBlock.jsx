@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import {AppState, View, Text} from 'react-native';
-
 import styles from './component.style';
 import AttendanceButton from '../buttons/AttendanceButton';
 import {ICONS} from '../../constants/icons';

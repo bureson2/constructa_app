@@ -1,19 +1,11 @@
 import styles from "./component.style";
-import {
-    Text,
-    ImageBackground,
-    View,
-    TextInput
-} from 'react-native';
+import {ImageBackground, Text, TextInput, View} from 'react-native';
 import {useState} from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import {Stack, useRouter} from "expo-router";
+import {useRouter} from "expo-router";
 import BlueButton from "../components/buttons/BlueButton";
 import ScreenHeader from "../components/headers/ScreenHeader";
-
-// TODO odstranit default email a heslo
-
-const origin = "192.168.43.39";
+import {API_ORIGIN} from "../constants/app.config"
 
 const Login = () => {
     const router = useRouter()
@@ -21,9 +13,8 @@ const Login = () => {
     const [password, setPassword] = useState('1234');
 
     const handleLogin = async () => {
-
         try {
-            const response = await fetch(`http://${origin}:8080/api/v1/auth/authenticate`, {
+            const response = await fetch(`http://${API_ORIGIN}:8080/api/v1/auth/authenticate`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

@@ -1,5 +1,5 @@
 import {StyleSheet} from "react-native";
-import {COLORS, SIZES, FONT} from "../../constants";
+import {COLORS, FONT, SIZES} from "../../constants";
 
 const styles = StyleSheet.create({
     tab: {

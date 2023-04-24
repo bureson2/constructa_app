@@ -6,11 +6,10 @@ import useFetch from "../../../hook/useFetch";
 import sendData from "../../../hook/sendData";
 import React, {useEffect, useState} from "react";
 import {COLORS, SIZES} from "../../../constants";
-import DateTimeInput from "../../../components/date_input/DateTimeInput";
 import BlueButton from "../../../components/buttons/BlueButton";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import DateInput from "../../../components/date_input/DateInput";
-import { Picker } from "@react-native-picker/picker";
+import {Picker} from "@react-native-picker/picker";
 
 const PreparedConstructionReport = () => {
     const params = useSearchParams();

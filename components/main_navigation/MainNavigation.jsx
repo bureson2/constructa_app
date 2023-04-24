@@ -8,16 +8,15 @@ import Task from "../pages/tasks/Task";
 import HomeTabs from "../pages/tabs/HomeTabs";
 
 import {
-    homeIcon,
     homeFocusedIcon,
-    reportsIcon,
+    homeIcon,
     reportsFocusedIcon,
-    usersIcon,
-    usersFocusedIcon,
-    tasksIcon,
+    reportsIcon,
     tasksFocusedIcon,
+    tasksIcon,
+    usersFocusedIcon,
+    usersIcon,
 } from '../../constants/icons';
-import ScreenHeader from "../headers/ScreenHeader";
 
 const Tab = createBottomTabNavigator();
 
