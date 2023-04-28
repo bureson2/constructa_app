@@ -8,6 +8,11 @@ import {useRouter, useSearchParams} from "expo-router";
 import useFetch from "../../../hook/useFetch";
 import Loading from "../../../components/activity_indicator/Loading";
 
+/**
+ * Component that renders construction reports list.
+ *
+ * @returns {React.Element} A React component representing construction report list
+ */
 const ConstructionReports = () => {
 
     const router = useRouter();

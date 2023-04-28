@@ -4,9 +4,19 @@ import {Path, Svg} from "react-native-svg";
 import {COLORS} from "../../constants";
 import {ICONS} from "../../constants/icons";
 
-
+/**
+ * ListItem component that renders different item types.
+ *
+ * @param {Object} props - Component properties.
+ * @param {string} props.itemType - The type of item to render.
+ * @param {Object} props.item - The item object containing data.
+ * @param {Function} props.handleCardPress - Function to handle card press event.
+ * @returns {React.Element} A React component representing a ListItem.
+ */
 const ListItem = ({itemType, item, handleCardPress}) => {
 
+    // Functions to get the appropriate icons based on the item type and state
+    // ... (all get*Icon functions)
     function getTaskIcon(state) {
         if (state === "Hotovo") {
             return ICONS.check;
@@ -48,6 +58,9 @@ const ListItem = ({itemType, item, handleCardPress}) => {
         >
             <View style={styles.circle}>
                 {
+                    // Render appropriate icon or text based on the itemType
+                    // ... (all itemType conditions)
+
                     itemType === "EMPLOYEE" ?
                         <Text style={styles.circleText}>
                             {item.lastname.charAt(0)}
@@ -108,6 +121,9 @@ const ListItem = ({itemType, item, handleCardPress}) => {
             <View style={styles.contentContainer}>
                 {itemType === "EMPLOYEE" ?
                     <View>
+                        // Render appropriate content based on the itemType
+                        // ... (all itemType conditions)
+
                         <Text>
                             {
                                 (item.titleBeforeName ? item.titleBeforeName + " " : "")

@@ -11,6 +11,11 @@ import BlueButton from "../../components/buttons/BlueButton";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Loading from "../../components/activity_indicator/Loading";
 
+/**
+ * Component that renders prepared car report with data fetched after QR code scanning.
+ *
+ * @returns {React.Element} A React component representing car report form with data fetched after QR code scanning
+ */
 const PreparedCarReport = () => {
     const params = useSearchParams();
     const router = useRouter();

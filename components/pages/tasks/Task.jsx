@@ -9,6 +9,11 @@ import React from "react";
 import Loading from "../../activity_indicator/Loading";
 import {useFocusEffect} from "@react-navigation/native";
 
+/**
+ * Component that renders task list.
+ *
+ * @returns {React.Element} A React component representing task list
+ */
 const Task = () => {
 
     const router = useRouter();

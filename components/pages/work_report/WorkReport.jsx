@@ -8,6 +8,11 @@ import ScreenHeader from "../../headers/ScreenHeader";
 import Loading from "../../activity_indicator/Loading";
 import {useFocusEffect} from "@react-navigation/native";
 
+/**
+ * Component that renders users attendance.
+ *
+ * @returns {React.Element} A React component representing users attendance list
+ */
 const WorkReport = () => {
     const { data, isLoading, error, refetch } = useFetch("work-reports/my");
 

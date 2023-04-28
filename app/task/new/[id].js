@@ -12,6 +12,11 @@ import sendData from "../../../hook/sendData";
 import BlueButton from "../../../components/buttons/BlueButton";
 import Loading from "../../../components/activity_indicator/Loading";
 
+/**
+ * Component that renders new task form.
+ *
+ * @returns {React.Element} A React component representing new task form
+ */
 const TaskDetail = () => {
 
     const params = useSearchParams();

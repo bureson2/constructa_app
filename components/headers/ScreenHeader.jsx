@@ -4,12 +4,22 @@ import {Stack, useRouter, useSearchParams} from "expo-router";
 import {Path, Svg} from "react-native-svg";
 import {ICONS} from "../../constants/icons";
 
+/**
+ * ScreenHeader component that renders a custom screen header.
+ *
+ * @param {Object} props - Component properties.
+ * @param {string} props.title - The title of the header.
+ * @param {boolean} [props.show=true] - A flag to show or hide the header.
+ * @param {boolean} [props.addTask=false] - A flag to enable or disable the "add task" button.
+ * @returns {React.Element} A React component representing a ScreenHeader.
+ */
 const ScreenHeader = ({title, show, addTask}) => {
 
+    // Hooks for navigation and search params
     const router = useRouter();
     const params = useSearchParams();
 
-
+    // Function to handle the "add task" button click
     function onAddTaskHandle(){
         router.push(`/task/new/${params.id}`);
     }
@@ -21,7 +31,9 @@ const ScreenHeader = ({title, show, addTask}) => {
                 headerShadowVisible: false,
                 headerTitle: title,
                 headerTitleStyle: {color: COLORS.textColor},
+                // Display the header only when show prop is not false
                 headerShown: show !== false,
+                // Conditionally render the "add task" button
                 headerRight: () => (
                     addTask ?
                         <TouchableOpacity onPress={onAddTaskHandle}

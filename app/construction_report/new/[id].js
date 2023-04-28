@@ -11,6 +11,11 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import DateInput from "../../../components/date_input/DateInput";
 import {Picker} from "@react-native-picker/picker";
 
+/**
+ * Component that renders prepared construction report with data fetched after QR code scanning.
+ *
+ * @returns {React.Element} A React component representing construction report form with data fetched after QR code scanning
+ */
 const PreparedConstructionReport = () => {
     const params = useSearchParams();
     const router = useRouter();

@@ -12,14 +12,17 @@ import sendData from "../../hook/sendData";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Loading from "../../components/activity_indicator/Loading";
 
+/**
+ * Component that renders task detail.
+ *
+ * @returns {React.Element} A React component representing task detail
+ */
 const TaskDetail = () => {
 
     const params = useSearchParams();
     const router = useRouter();
 
-    // TODO onLoading pri aktualizaci stavu
-
-    const {data, isLoading, error, refetch} = useFetch("tasks/" + params.id);
+    const {data, isLoading, error} = useFetch("tasks/" + params.id);
     const [inputHeight, setInputHeight] = useState(50);
     const [token, setToken] = useState(null);
 

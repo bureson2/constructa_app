@@ -8,6 +8,11 @@ import {COLORS, SIZES} from "../../constants";
 import BlueButton from "../../components/buttons/BlueButton";
 import Loading from "../../components/activity_indicator/Loading";
 
+/**
+ * Component that renders project detail.
+ *
+ * @returns {React.Element} A React component representing project detail
+ */
 const ProjectDetail = () => {
     const router = useRouter();
     const params = useSearchParams();

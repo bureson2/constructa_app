@@ -9,6 +9,11 @@ import sendData from "../../hook/sendData";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {useRouter} from "expo-router";
 
+/**
+ * Component that renders sick form.
+ *
+ * @returns {React.Element} A React component representing sick form
+ */
 const Sick = () => {
     const router = useRouter();
     const [timeFrom, setTimeFrom] = useState(new Date());

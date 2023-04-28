@@ -8,6 +8,11 @@ import {useRouter} from "expo-router";
 import useFetch from "../../hook/useFetch";
 import Loading from "../../components/activity_indicator/Loading";
 
+/**
+ * Component that renders projects list.
+ *
+ * @returns {React.Element} A React component representing projects list
+ */
 const Projects = () => {
 
     const router = useRouter();

@@ -7,11 +7,13 @@ import BlueButton from "../components/buttons/BlueButton";
 import ScreenHeader from "../components/headers/ScreenHeader";
 import {API_ORIGIN} from "../constants/app.config"
 
+// Login component
 const Login = () => {
     const router = useRouter()
     const [email, setEmail] = useState('email@email.cz');
     const [password, setPassword] = useState('1234');
 
+    // Handle login process
     const handleLogin = async () => {
         try {
             const response = await fetch(`http://${API_ORIGIN}:8080/api/v1/auth/authenticate`, {
@@ -27,15 +29,16 @@ const Login = () => {
                 await AsyncStorage.setItem('token', data.token);
                 router.push(`home`);
             } else {
-                // přihlášení se nezdařilo, zobrazíme chybovou hlášku uživateli
+                // Login failed, display error message to user
                 console.error('Přihlášení se nezdařilo');
             }
         } catch (error) {
-            // došlo k chybě při volání endpointu, zobrazíme chybovou hlášku uživateli
+            // An error occurred while calling the endpoint, display an error message to the user
             console.error('Nepodařilo se zavolat endpoint', error);
         }
     };
 
+    // Render the login form
     return (
         <ImageBackground
             source={require("../assets/backgrounds/loginBG.png")}

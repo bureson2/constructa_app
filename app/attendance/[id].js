@@ -12,13 +12,18 @@ import * as Location from 'expo-location';
 import Constants from 'expo-constants';
 import Loading from "../../components/activity_indicator/Loading";
 
+/**
+ * Component that renders prepared attendace with data fetched after QR code scanning.
+ *
+ * @returns {React.Element} A React component representing attendace form with data fetched after QR code scanning
+ */
 const PreparedAttendance = () => {
     const params = useSearchParams();
     const router = useRouter();
     const [inputHeight, setInputHeight] = useState(50);
     const [token, setToken] = useState(null);
 
-    const {data, isLoading, error, refetch} = useFetch("work-reports/location/" + params.id);
+    const {data, isLoading, error} = useFetch("work-reports/location/" + params.id);
     const [location, setLocation] = useState(null);
 
     const getLocation = async () => {

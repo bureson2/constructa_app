@@ -8,6 +8,11 @@ import {SIZES} from "../../../constants";
 import ScreenHeader from "../../headers/ScreenHeader";
 import Loading from "../../activity_indicator/Loading";
 
+/**
+ * Component that renders employee list.
+ *
+ * @returns {React.Element} A React component representing employee list
+ */
 const Employee = () => {
 
     const router = useRouter();

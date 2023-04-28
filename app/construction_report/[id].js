@@ -7,12 +7,17 @@ import useFetch from "../../hook/useFetch";
 import {useState} from "react";
 import Loading from "../../components/activity_indicator/Loading";
 
+/**
+ * Component that renders prepared construction report with data.
+ *
+ * @returns {React.Element} A React component representing construction report form with data fetched after QR code scanning
+ */
 const ConstructionReportDetail = () => {
 
     const params = useSearchParams();
     const router = useRouter();
 
-    const { data, isLoading, error, refetch } = useFetch("construction-reports/" + params.id);
+    const { data, isLoading, error } = useFetch("construction-reports/" + params.id);
     const [noteInpitHeight, setNoteInputHeight] = useState(50);
     const [weatherInputHeight, setWeatherInputHeight] = useState(50);
 

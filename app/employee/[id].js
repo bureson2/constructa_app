@@ -7,7 +7,11 @@ import {ICONS} from "../../constants/icons";
 import AttendanceButton from "../../components/buttons/AttendanceButton";
 import Loading from "../../components/activity_indicator/Loading";
 
-
+/**
+ * Component that renders employee detail.
+ *
+ * @returns {React.Element} A React component representing employee detail
+ */
 const EmployeeDetail = () => {
     const params = useSearchParams();
 

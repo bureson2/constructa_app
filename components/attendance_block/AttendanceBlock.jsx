@@ -7,14 +7,20 @@ import {useRouter} from 'expo-router';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import sendData from "../../hook/sendData";
 
+/**
+ * Component with attendance timer and control buttons.
+ *
+ * @returns {React.Element} with timer and control buttons.
+ */
 const AttendanceBlock = ({title, icon}) => {
+    // Hooks
     const router = useRouter();
     const [time, setTime] = useState(0);
     const [timerOn, setTimerOn] = useState(false);
     const [appState, setAppState] = useState(AppState.currentState);
     const [token, setToken] = useState(null);
 
-
+    // Listen for app state changes
     useEffect(() => {
         const handleAppStateChange = (nextAppState) => {
             setAppState(nextAppState);
@@ -27,6 +33,7 @@ const AttendanceBlock = ({title, icon}) => {
         };
     }, []);
 
+    // Timer functionality
     useEffect(() => {
         let interval;
 
@@ -43,6 +50,7 @@ const AttendanceBlock = ({title, icon}) => {
         };
     }, [timerOn, appState]);
 
+    // Fetch token from storage
     useEffect(() => {
         const fetchToken = async () => {
             const storedToken = await AsyncStorage.getItem("token");
@@ -53,6 +61,7 @@ const AttendanceBlock = ({title, icon}) => {
         fetchToken();
     }, []);
 
+    // Handle stop button press
     const handleOnStopPress = async () => {
         try {
             const dataToSend = {
@@ -72,19 +81,23 @@ const AttendanceBlock = ({title, icon}) => {
         }
     };
 
+    // Handle play button press
     const handleOnPlayPress = () => {
         setTimerOn(true);
         router.push(`/qr_scanner/qrScanner`);
     };
 
+    // Handle continue button press
     const handleOnContinuePress = () => {
         setTimerOn(true);
     };
 
+    // Handle pause button press
     const handleOnPausePress = () => {
         setTimerOn(false);
     };
 
+    // Format time display
     const displayTime = (time) => {
         const minutes = Math.floor(time / 60);
         const seconds = time % 60;

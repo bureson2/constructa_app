@@ -6,13 +6,15 @@ import ScreenHeader from "../../components/headers/ScreenHeader";
 import styles from "./component.style";
 import {useRouter} from "expo-router";
 
-
+// QR Scanner component
 const qrScanner = () => {
     LogBox.ignoreAllLogs(true);
 
+    // Initialize state variables
     const [hasCameraPermission, setHasCameraPermission] = useState(null);
     const router = useRouter();
 
+    // Request camera permission on component mount
     useEffect(() => {
         (async () => {
             const {status} = await Permissions.askAsync(Permissions.CAMERA);
@@ -20,6 +22,7 @@ const qrScanner = () => {
         })();
     }, []);
 
+    // Handle barcode scanning
     const handleBarCodeScanned = ({type, data}) => {
         try {
             const jsonData = JSON.parse(data);
@@ -37,14 +40,17 @@ const qrScanner = () => {
         }
     };
 
+    // Display a loading view while waiting for camera permission
     if (hasCameraPermission === null) {
         return <View/>;
     }
 
+    // Display an error message if camera permission is denied
     if (hasCameraPermission === false) {
         return <Text>No access to camera</Text>;
     }
 
+    // Render the QR scanner
     return (
         <View style={styles.container}>
             <ScreenHeader title={"QR Scanner"}/>

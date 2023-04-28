@@ -7,6 +7,7 @@ import Employee from "../pages/employees/Employee";
 import Task from "../pages/tasks/Task";
 import HomeTabs from "../pages/tabs/HomeTabs";
 
+// Import icons
 import {
     homeFocusedIcon,
     homeIcon,
@@ -18,11 +19,12 @@ import {
     usersIcon,
 } from '../../constants/icons';
 
+// Initialize Tab Navigator
 const Tab = createBottomTabNavigator();
 
-
+// MainNavigation component
 const MainNavigation = () => {
-
+    // Render Tab Navigator with custom styling and options
     return (
         <Tab.Navigator
             style={styles.bottomNav}
@@ -30,6 +32,7 @@ const MainNavigation = () => {
                 tabBarIcon: ({focused, color, size}) => {
                     let IconComponent;
 
+                    // Choose the correct icon based on the route name and focus state
                     switch (route.name) {
                         case 'Home':
                             IconComponent = focused ? homeFocusedIcon : homeIcon;
@@ -51,6 +54,7 @@ const MainNavigation = () => {
                 tabBarInactiveTintColor: '#3C3939',
             })}
         >
+            {/* Define Tab Screens with custom labels and options */}
             <Tab.Screen name="Home" component={HomeTabs} options={{
                 tabBarLabel: 'Domů',
                 headerShown: false

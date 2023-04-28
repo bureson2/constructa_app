@@ -6,6 +6,11 @@ import AttendanceBlock from "../../attendance_block/AttendanceBlock";
 import ScreenHeader from "../../headers/ScreenHeader";
 import React from "react";
 
+/**
+ * Component with home tabs on main page.
+ *
+ * @returns {React.Element} A React component with home option tabs
+ */
 const HomeTabs = () => {
 
     return (
