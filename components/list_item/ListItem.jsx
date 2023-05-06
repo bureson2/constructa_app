@@ -121,9 +121,6 @@ const ListItem = ({itemType, item, handleCardPress}) => {
             <View style={styles.contentContainer}>
                 {itemType === "EMPLOYEE" ?
                     <View>
-                        // Render appropriate content based on the itemType
-                        // ... (all itemType conditions)
-
                         <Text>
                             {
                                 (item.titleBeforeName ? item.titleBeforeName + " " : "")

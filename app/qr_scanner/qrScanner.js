@@ -31,7 +31,7 @@ const qrScanner = () => {
                 path = jsonData.type;
             }
             if (jsonData.hasOwnProperty('id')) {
-                router.push(`/${path}/${jsonData.id}`)
+                router.push(`/${path}/${jsonData.id}`);
             } else {
                 console.log('Klíč "name" nebo "type" nebyl nalezen v načteném JSONu');
             }
